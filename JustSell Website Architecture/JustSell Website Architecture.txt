@@ -1,4 +1,6 @@
-Nav Menu Contents:
+For our website design we took inspiration from existing real-estate websites and decided on the following design.
+
+A common Navbar containing the following:
 	- Logo (goes to main home page)
 	- Login (goes to User Registration & Login Page)
 	- Search (goes to Search Results Page)
@@ -32,3 +34,6 @@ Nav Menu Contents:
 9. Contact us Page:
 	○ Information about our group/topic
 	○ How to contact the company and/or where they are located
+
+Currently our wireframes for the Home page and Admin Panel are still in progess.
+

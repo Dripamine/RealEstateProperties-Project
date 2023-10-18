@@ -12,17 +12,17 @@
   </head>
   <body>
     <div class="navbar">
-      <ul>
-        <li class="home">
-          <a href="#home"><img src="logo.png" alt="Home" /></a>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="#home"><img src="resources/logo.png" alt="Home"/></a>
         </li>
-        <li class="phone">
+        <li class="nav-item">
           <a href="#phone"><i class="fa">&#xf095;</i> (514) 900-0909</a>
         </li>
-        <li>
+        <li class="nav-item">
           <a href="#find"><i class="fa">&#xf002;</i> Find Your Property</a>
         </li>
-        <li>
+        <li class="nav-item">
           <a href="#login"><i class="fa">&#xf090;</i> Login</a>
         </li>
       </ul>

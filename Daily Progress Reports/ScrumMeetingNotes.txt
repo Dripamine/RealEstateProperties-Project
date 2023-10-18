@@ -13,8 +13,10 @@ October 14 and 15th
 October 16th - Project Day 2
     Karina - working on the Low-fidelity wireframe
     Amine finished defining the database entities and their attributes.
+    Benjamin - Started HTML based on wireframe
 
 
 
 October 17th - Project Day 3
     Amine worked on the E/R Diagram. 
+    Benjamin - Converted HTML to php

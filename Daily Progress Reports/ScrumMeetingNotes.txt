@@ -23,3 +23,9 @@ October 17th - Project Day 3
 
 October 18th -
     Benjamin - Started Database, created sql file
+
+October 19th
+    Group discussion about Home page, Admin panel & db improvements
+
+October 20th
+    Benjamin - DB structure Update, Continued work on Registration page

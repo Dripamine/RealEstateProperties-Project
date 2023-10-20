@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Oct 20, 2023 at 04:04 PM
+-- Generation Time: Oct 20, 2023 at 05:21 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -60,7 +60,7 @@ CREATE TABLE `logins` (
   `LoginID` int(11) NOT NULL,
   `Username` varchar(30) NOT NULL,
   `Password` varchar(255) NOT NULL,
-  `Permission` tinyint(4) NOT NULL
+  `Permission` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Oct 18, 2023 at 09:36 PM
+-- Generation Time: Oct 20, 2023 at 04:04 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -29,9 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admins` (
   `AdminID` int(11) NOT NULL,
-  `UserID` int(11) NOT NULL,
-  `Username` varchar(30) NOT NULL,
-  `Password` varchar(30) NOT NULL
+  `LoginID` int(11) NOT NULL,
+  `FirstName` varchar(30) NOT NULL,
+  `LastName` varchar(30) NOT NULL,
+  `Email` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -42,10 +43,24 @@ CREATE TABLE `admins` (
 
 CREATE TABLE `agents` (
   `AgentID` int(11) NOT NULL,
+  `LoginID` int(11) NOT NULL,
   `FirstName` varchar(30) NOT NULL,
   `LastName` varchar(30) NOT NULL,
   `Phone` varchar(15) NOT NULL,
   `Email` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `logins`
+--
+
+CREATE TABLE `logins` (
+  `LoginID` int(11) NOT NULL,
+  `Username` varchar(30) NOT NULL,
+  `Password` varchar(255) NOT NULL,
+  `Permission` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -57,7 +72,11 @@ CREATE TABLE `agents` (
 CREATE TABLE `properties` (
   `PropertyID` int(11) NOT NULL,
   `AgentID` int(11) NOT NULL,
-  `Address` varchar(60) NOT NULL,
+  `StreetNum` mediumint(8) UNSIGNED NOT NULL,
+  `StreetName` varchar(60) NOT NULL,
+  `City` varchar(30) NOT NULL,
+  `Province` varchar(30) NOT NULL,
+  `Postal` varchar(7) NOT NULL,
   `Description` varchar(255) NOT NULL,
   `Price` float NOT NULL,
   `Bathrooms` tinyint(3) UNSIGNED NOT NULL DEFAULT '1',
@@ -92,13 +111,16 @@ CREATE TABLE `propertyoffers` (
 
 CREATE TABLE `users` (
   `UserID` int(11) NOT NULL,
-  `Username` varchar(30) NOT NULL,
-  `Password` varchar(30) NOT NULL,
+  `LoginID` int(11) NOT NULL,
   `Email` varchar(30) NOT NULL,
   `FirstName` varchar(30) NOT NULL,
   `LastName` varchar(30) NOT NULL,
   `Phone` varchar(15) NOT NULL,
-  `Address` varchar(60) NOT NULL
+  `StreetNum` mediumint(9) NOT NULL,
+  `StreetName` varchar(30) NOT NULL,
+  `City` varchar(30) NOT NULL,
+  `Province` varchar(30) NOT NULL,
+  `Postal` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -110,13 +132,20 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`AdminID`),
-  ADD KEY `FK_AD_USER` (`UserID`);
+  ADD KEY `FK_AD_LG` (`LoginID`);
 
 --
 -- Indexes for table `agents`
 --
 ALTER TABLE `agents`
-  ADD PRIMARY KEY (`AgentID`);
+  ADD PRIMARY KEY (`AgentID`),
+  ADD KEY `FK_AG_LG` (`LoginID`);
+
+--
+-- Indexes for table `logins`
+--
+ALTER TABLE `logins`
+  ADD PRIMARY KEY (`LoginID`);
 
 --
 -- Indexes for table `properties`
@@ -137,7 +166,8 @@ ALTER TABLE `propertyoffers`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`UserID`);
+  ADD PRIMARY KEY (`UserID`),
+  ADD KEY `FK_USER_LG` (`LoginID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -153,13 +183,19 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `agents`
 --
 ALTER TABLE `agents`
-  MODIFY `AgentID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `AgentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `logins`
+--
+ALTER TABLE `logins`
+  MODIFY `LoginID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `PropertyID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PropertyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `propertyoffers`
@@ -181,7 +217,13 @@ ALTER TABLE `users`
 -- Constraints for table `admins`
 --
 ALTER TABLE `admins`
-  ADD CONSTRAINT `FK_AD_USER` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`);
+  ADD CONSTRAINT `FK_AD_LG` FOREIGN KEY (`LoginID`) REFERENCES `logins` (`LoginID`);
+
+--
+-- Constraints for table `agents`
+--
+ALTER TABLE `agents`
+  ADD CONSTRAINT `FK_AG_LG` FOREIGN KEY (`LoginID`) REFERENCES `logins` (`LoginID`);
 
 --
 -- Constraints for table `properties`
@@ -195,6 +237,12 @@ ALTER TABLE `properties`
 ALTER TABLE `propertyoffers`
   ADD CONSTRAINT `FK_PO_PRTY` FOREIGN KEY (`PropertyID`) REFERENCES `properties` (`PropertyID`),
   ADD CONSTRAINT `FK_PO_USER` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`);
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `FK_USER_LG` FOREIGN KEY (`LoginID`) REFERENCES `logins` (`LoginID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

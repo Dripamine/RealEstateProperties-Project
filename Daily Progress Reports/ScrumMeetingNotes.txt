@@ -1,4 +1,4 @@
-October 13th - Project Day 1
+Friday October 13th - Project Day 1
     Amine volunteered to set up the GitHub repo. 
     Then we ended the meeting early to read through the assignment instructions.
 
@@ -10,16 +10,26 @@ October 14 and 15th
 
 
 
-October 16th - Project Day 2
+Monday October 16th - Project Day 2
     Karina - working on the Low-fidelity wireframe
     Amine finished defining the database entities and their attributes.
     Benjamin - Started HTML based on wireframe
 
 
 
-October 17th - Project Day 3
+Tuesday October 17th - Project Day 3
     Amine worked on the E/R Diagram. 
     Benjamin - Converted HTML to php
 
-October 18th -
+
+
+Wednesday October 18th - Project Day 4
     Benjamin - Started Database, created sql file
+    Amine researched and found theweb hosting server for our website: infinityfree.com
+
+
+Thurday October 19th - 
+
+
+
+Friday October 20th -

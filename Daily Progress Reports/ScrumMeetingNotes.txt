@@ -20,16 +20,20 @@ Monday October 16th - Project Day 2
 Tuesday October 17th - Project Day 3
     Amine worked on the E/R Diagram. 
     Benjamin - Converted HTML to php
+    Karina - Working on HTML for home page
 
 
 
 Wednesday October 18th - Project Day 4
     Benjamin - Started Database, created sql file
     Amine researched and found theweb hosting server for our website: infinityfree.com
+    Karina - Working on CSS, HTML and PHP for home page
 
 
 Thurday October 19th - 
+    Karina - Working on HTML for search page
 
 
 
 Friday October 20th -
+    Karina - Working on HTML for search page

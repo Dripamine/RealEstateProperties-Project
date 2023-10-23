@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Oct 20, 2023 at 05:21 PM
+-- Generation Time: Oct 23, 2023 at 05:56 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
@@ -50,6 +50,13 @@ CREATE TABLE `agents` (
   `Email` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `agents`
+--
+
+INSERT INTO `agents` (`AgentID`, `LoginID`, `FirstName`, `LastName`, `Phone`, `Email`) VALUES
+(1, 1, 'John', 'Doe', '514 909 0909', 'JohnDoe@Test.ca');
+
 -- --------------------------------------------------------
 
 --
@@ -62,6 +69,13 @@ CREATE TABLE `logins` (
   `Password` varchar(255) NOT NULL,
   `Permission` tinyint(4) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `logins`
+--
+
+INSERT INTO `logins` (`LoginID`, `Username`, `Password`, `Permission`) VALUES
+(1, 'testuser', 'testpass', 2);
 
 -- --------------------------------------------------------
 
@@ -88,6 +102,15 @@ CREATE TABLE `properties` (
   `image_02` varchar(100) DEFAULT NULL,
   `image_03` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `properties`
+--
+
+INSERT INTO `properties` (`PropertyID`, `AgentID`, `StreetNum`, `StreetName`, `City`, `Province`, `Postal`, `Description`, `Price`, `Bathrooms`, `Bedrooms`, `Floors`, `size`, `furnished`, `image_01`, `image_02`, `image_03`) VALUES
+(1, 1, 123, 'Laurier', 'Montreal', 'QC', 'H1A 3H6', 'This is a lovely test property, located in the heart of downtown montreal.', 9999.79, 1, 1, 1, NULL, 0, NULL, NULL, NULL),
+(2, 1, 9999, 'Pie-IX', 'Montreal', 'QC', 'H1X 2X9', 'Located 5 mins from the Biodome, this is a wonderful place to live and you should definitely buy it. please buy this house. buy this house. buy it. buy this house.', 300001, 1, 4, 1, NULL, 0, NULL, NULL, NULL),
+(3, 1, 56, 'MapleLeaf', 'Somewhere', 'ON', 'O9N 0X0', 'A tiny Cabin is the calm valley of Somewhere, ON. The perfect vacation home or a wonderful place to retire.', 50.54, 1, 1, 1, NULL, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -189,13 +212,13 @@ ALTER TABLE `agents`
 -- AUTO_INCREMENT for table `logins`
 --
 ALTER TABLE `logins`
-  MODIFY `LoginID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `LoginID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `PropertyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `PropertyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `propertyoffers`

@@ -32,19 +32,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
   if (validateIsEmptyData($_POST, 'email')) $errorMsgs .= "Email is missing. <br>";
   else $email = $_POST['email'];
 
-  if (validateIsEmptyData($_POST, 'username')) $errorMsgs .= "Username is missing. <br>";
-  
-  
-  
-  // else if ($_POST['username'] == IMPORTANT TBD QUERY DB FOR EXISTING USERNAME
-  // $errorMsgs .= "That Username is taken.";
-  else //query db to see if username is already in use
-  $sql = "SELECT * FROM logins WHERE Username=:username";
-  $query = $db->prepare($sql);
-  $query->execute(['username' => $_POST['username']]);
-  $result = $query->fetch();
-  if ($result != null) $errorMsgs .= "Username is already in use. <br>";
-  else $username = $_POST['username'];
+  if (validateIsEmptyData($_POST, 'username')) {
+    $errorMsgs .= "Username is missing. <br>";
+  } else { //query db to see if username is already in use
+    $sql = "SELECT * FROM logins WHERE Username=:username";
+    $query = $db->prepare($sql);
+    $query->execute(['username' => $_POST['username']]);
+    $result = $query->fetch();
+    if ($result != null) {
+      $errorMsgs .= "Username is already in use. <br>";
+      } else {
+      $username = $_POST['username'];
+    }
+  }
 
   if (validateIsEmptyData($_POST, 'password'))
     $errorMsgs .= "Password is missing. <br>";

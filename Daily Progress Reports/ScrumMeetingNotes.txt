@@ -22,24 +22,6 @@ Tuesday October 17th - Project Day 3
     Benjamin - Converted HTML to php
     Karina - Working on HTML for home page
 
-<<<<<<< HEAD
-October 18th -
-    Benjamin - Started Database, created sql file
-
-October 19th
-    Group discussion about Home page, Admin panel & db improvements
-
-October 20th
-    Benjamin - DB structure Update, Continued work on Registration page
-
-October 23rd
-    Benjamin - created some sample data for DB, continued suffering with Registration page
-
-October 24th
-    Benjamin - Registration Page almost complete! TDB password hashing and checking for username already in use
-=======
-
-
 Wednesday October 18th - Project Day 4
     Benjamin - Started Database, created sql file
     Amine - researched and found theweb hosting server for our website: infinityfree.com
@@ -48,15 +30,15 @@ Wednesday October 18th - Project Day 4
 
 Thurday October 19th - 
     Karina - Working on HTML for search page
-
-
+    Group discussion about Home page, Admin panel & db improvements
 
 Friday October 20th -
     Karina - Working on HTML for search page
     Amine - Started working on Contact Us page.
-
-
+    Benjamin - DB structure Update, Continued work on Registration page
 
 Monday October 23rd -
-    
->>>>>>> main
+    Benjamin - created some sample data for DB, continued suffering with Registration page
+
+Tuesday October 24th
+    Benjamin - Registration Page almost complete! TDB password hashing and checking for username already in use

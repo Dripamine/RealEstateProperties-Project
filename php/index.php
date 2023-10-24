@@ -35,5 +35,9 @@ while($row = $query->fetch()){
 </div>
 
 <?php
+include "home.php";
+?>
+
+<?php
 include "resources/footer.php"
 ?>

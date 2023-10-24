@@ -3,7 +3,7 @@
 //variables
 $type = "mysql";
 $host = "localhost";
-$dbName = "fsd10_Uniform";
+$dbName = "fsd10_uniform";
 $port = "8889"; //Benjamins port: 8889
 $charset = "utf8";
 $dbUsername = "fsduser";

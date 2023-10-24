@@ -27,53 +27,75 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
   else $fName = $_POST['fName'];
 
   if (validateIsEmptyData($_POST, 'lName')) $errorMsgs .= "Last name is missing. <br>";
-  else $fName = $_POST['lName'];
+  else $lName = $_POST['lName'];
 
   if (validateIsEmptyData($_POST, 'email')) $errorMsgs .= "Email is missing. <br>";
-  else $fName = $_POST['email'];
+  else $email = $_POST['email'];
 
   if (validateIsEmptyData($_POST, 'username')) $errorMsgs .= "Username is missing. <br>";
-  // else if ($_POST['username'] == "I guess we have to query the db_users to see if that user name is taken?") 
+  // else if ($_POST['username'] == IMPORTANT TBD QUERY DB FOR EXISTING USERNAME
   // $errorMsgs .= "That Username is taken.";
-  else $fName = $_POST['username'];
+  else $username = $_POST['username'];
 
   if (validateIsEmptyData($_POST, 'password'))
     $errorMsgs .= "Password is missing. <br>";
-   else if (stnlen($_POST['password']) < 7) 
+   else if (strlen($_POST['password']) < 7) 
     $errorMsgs .= "That Password is too short.";
-   else $fName = $_POST['password'];
+   else $password = $_POST['password'];
   
-  if ($errorMsgs = ""){
+  if ($errorMsgs == ""){
     //if no errors save to DB
     $data = [
-      'fName' => $fName,
-      'lName' => $lName,
-      'email' => $email,
       'username' => $username,
       'password' => $password, //IMPORTANT this is not hashed. THIS NEEDS TO BE HASHED
     ];
-    
+
+    // Create login
     $sql = "INSERT INTO logins (Username, Password) VALUES (:username, :password);";
     $query = $db->prepare($sql);
     $query->execute($data);
-  } else {
-    echo $errorMsgs;
+
+    //take loginID from created login
+    $sql = "SELECT LoginID FROM logins WHERE Username=:username";
+    $query = $db->prepare($sql);
+    $query->execute(['username' => $username]);
+    $result = $query->fetch();
+
+    $data = [
+      'LoginID' => $result['LoginID'],
+      'FirstName' => $fName,
+      'LastName' => $lName,
+      'Email' => $email,
+    ];
+
+    //create user
+    $sql = "INSERT INTO users (LoginID, FirstName, LastName, Email) VALUES (:LoginID, :FirstName, :LastName, :Email)";
+    $query = $db->prepare($sql);
+    $query->execute($data);
+
   }
 }
 
 include "resources/header.php";
 ?>
 
+<p> <?=$errorMsgs ?> </p>
 <div class="regi-box">
   <div class="form">
 <h1>Create An Account!</h1>  
-<form action="" method="">
-  <input type="text" name="fName"/><br>
-  <input type="text" name="lName"/><br>
-  <input type="email" name="email"/><br>
-  <input type="text" name="username"/><br>
-  <input type="text" name="pass"/><br>
-  <input type="text" name="passcomf"/><br>
+<form action="registration.php" method="POST">
+  <p>First Name: </p>
+  <input type="text" name="fName" id="fName" /><br>
+  <p>Last Name: </p>
+  <input type="text" name="lName" id="lName" /><br>
+  <p>Email: </p>
+  <input type="email" name="email" id="email"/><br>
+  <p>Username: </p>
+  <input type="text" name="username" id="username" /><br>
+  <p>Password: </p>
+  <input type="text" name="password" id="password"/><br>
+  <p>Confirm Password: </p>
+  <input type="text" name="passcomf" id="passcomf"/><br>
   <p?>already have an account? <a href="#login">login now</a></p>
   <input type="submit" value="Register Now" />
   </div>

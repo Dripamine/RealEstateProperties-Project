@@ -29,3 +29,9 @@ October 19th
 
 October 20th
     Benjamin - DB structure Update, Continued work on Registration page
+
+October 23rd
+    Benjamin - created some sample data for DB, continued suffering with Registration page
+
+October 24th
+    Benjamin - Registration Page almost complete! TDB password hashing and checking for username already in use

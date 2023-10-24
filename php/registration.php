@@ -33,21 +33,32 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
   else $email = $_POST['email'];
 
   if (validateIsEmptyData($_POST, 'username')) $errorMsgs .= "Username is missing. <br>";
+  
+  
+  
   // else if ($_POST['username'] == IMPORTANT TBD QUERY DB FOR EXISTING USERNAME
   // $errorMsgs .= "That Username is taken.";
+  else //query db to see if username is already in use
+  $sql = "SELECT * FROM logins WHERE Username=:username";
+  $query = $db->prepare($sql);
+  $query->execute(['username' => $_POST['username']]);
+  $result = $query->fetch();
+  if ($result != null) $errorMsgs .= "Username is already in use. <br>";
   else $username = $_POST['username'];
 
   if (validateIsEmptyData($_POST, 'password'))
     $errorMsgs .= "Password is missing. <br>";
-   else if (strlen($_POST['password']) < 7) 
-    $errorMsgs .= "That Password is too short.";
-   else $password = $_POST['password'];
+  else if (strlen($_POST['password']) < 7) 
+    $errorMsgs .= "That Password is too short. <br>";
+  else if ($_POST['password'] != $_POST['passcomf'])
+    $errorMsgs .= "Password does not match. <br>";
+  else $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
   
   if ($errorMsgs == ""){
     //if no errors save to DB
     $data = [
       'username' => $username,
-      'password' => $password, //IMPORTANT this is not hashed. THIS NEEDS TO BE HASHED
+      'password' => $password,
     ];
 
     // Create login
@@ -85,13 +96,13 @@ include "resources/header.php";
 <h1>Create An Account!</h1>  
 <form action="registration.php" method="POST">
   <p>First Name: </p>
-  <input type="text" name="fName" id="fName" /><br>
+  <input type="text" name="fName" id="fName" value="<?=$fName; ?>"/><br>
   <p>Last Name: </p>
-  <input type="text" name="lName" id="lName" /><br>
+  <input type="text" name="lName" id="lName" value="<?=$lName; ?>"/><br>
   <p>Email: </p>
-  <input type="email" name="email" id="email"/><br>
+  <input type="email" name="email" id="email" value="<?=$email; ?>"/><br>
   <p>Username: </p>
-  <input type="text" name="username" id="username" /><br>
+  <input type="text" name="username" id="username" value="<?=$username; ?>"/><br>
   <p>Password: </p>
   <input type="text" name="password" id="password"/><br>
   <p>Confirm Password: </p>

@@ -2,20 +2,14 @@ Friday October 13th - Project Day 1
     Amine volunteered to set up the GitHub repo. 
     Then we ended the meeting early to read through the assignment instructions.
 
-
-
 October 14 and 15th
     Karina - created the logo and pushed to GitHub repo.
     Karina - srated working on the Low-fidelity wireframe  -  display elements in simple content blocks or general images, taking our team basic concept and turning it into something more refined. This phase will determine what graphical elements need to be created and what copy needs to be written.
-
-
 
 Monday October 16th - Project Day 2
     Karina - working on the Low-fidelity wireframe
     Amine finished defining the database entities and their attributes.
     Benjamin - Started HTML based on wireframe
-
-
 
 Tuesday October 17th - Project Day 3
     Amine - worked on the E/R Diagram. 
@@ -26,7 +20,6 @@ Wednesday October 18th - Project Day 4
     Benjamin - Started Database, created sql file
     Amine - researched and found theweb hosting server for our website: infinityfree.com
     Karina - Working on CSS, HTML and PHP for home page
-
 
 Thurday October 19th - 
     Karina - Working on HTML for search page

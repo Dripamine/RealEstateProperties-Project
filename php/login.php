@@ -2,10 +2,21 @@
 
 require "resources/connect.php";
 
+function validateIsEmptyData($array, $key){
+
+  //if ( !array_key_exists('txtTitle', $_POST) || $_POST['txtTitle'] == ""){
+    if (!array_key_exists($key, $array) || $array[$key] ==  ""){
+      return true; 
+    } else 
+    return false;
+  
+  }
+
 $errorMsgs = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
+  //add validate Empty to a functions php
   if (validateIsEmptyData($_POST, 'username')) $errorMsgs .= "Username is required. <br>";
 
   if (validateIsEmptyData($_POST, 'password')) $errorMsgs .= "Password is required. <br>";
@@ -23,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
         //addcookie
 
-        //redirect
+        //redirect - i dont think this works
         header("location: home.php");
         die();
       } else {

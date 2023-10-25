@@ -36,3 +36,4 @@ Monday October 23rd -
 
 Tuesday October 24th
     Benjamin - Registration Page almost complete! TDB password hashing and checking for username already in use
+    Amine - added the mail function for the contact form.

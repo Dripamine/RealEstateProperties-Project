@@ -1,4 +1,8 @@
 <?php
+/* Temporary mail function until we deploy the website to the server. */ 
+?>
+
+<?php
 if (isset($_POST['contact_submit'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];

@@ -1,5 +1,5 @@
 <?php
-/* Temporary mail function until we deploy the website to the server. */ 
+/* Temporary mail function until we deploy the website to the server. */
 ?>
 
 <?php
@@ -15,11 +15,21 @@ if (isset($_POST['contact_submit'])) {
 
     $headers = "From: $email";
 
-    // Send the email
+
     if (mail($to, $subject, $messageBody, $headers)) {
         echo '<script>alert("Message sent successfully. We will get back to you soon.");</script>';
+
+
+        header('Refresh: 1; URL=/home.php'); 
+
+        exit;
     } else {
+
         echo '<script>alert("Message could not be sent. Please try again later.");</script>';
+
+        header('Refresh: 1; URL=/home.php');
+
+        exit;
     }
 }
 ?>

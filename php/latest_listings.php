@@ -1,3 +1,8 @@
+<?php
+include "resources/header.php";
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -120,3 +125,7 @@
 </section>
 
 <!-- listings section ends -->
+
+<?php
+include "resources/footer.php"
+?>

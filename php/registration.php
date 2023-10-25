@@ -107,7 +107,7 @@ include "resources/header.php";
   <input type="text" name="password" id="password"/><br>
   <p>Confirm Password: </p>
   <input type="text" name="passcomf" id="passcomf"/><br>
-  <p?>already have an account? <a href="#login">login now</a></p>
+  <p>already have an account? <a href="login.php">Log in here!</a></p>
   <input type="submit" value="Register Now" />
   </div>
 </div>

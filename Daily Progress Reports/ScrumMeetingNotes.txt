@@ -31,7 +31,8 @@ Friday October 20th -
     Benjamin - DB structure Update, Continued work on Registration page
 
 Monday October 23rd -
-    Benjamin - created some sample data for DB, continued suffering with Registration page
+   Amine - Started the Contact Us page.
+   Benjamin - created some sample data for DB, continued suffering with Registration page
 
 Tuesday October 24th
     Benjamin - Registration Page almost complete! TDB password hashing and checking for username already in use

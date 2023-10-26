@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
 
+ 
+/* ********GENERAL********** */
 :root{
    --main-color:#E59524;
    --light-color:#666;
@@ -36,17 +38,6 @@
    background-color: var(--main-color);
 }
 
-.download-app-image  {
-   display: flex;
-   justify-content: center; 
-   align-items: center; 
-}
-
-.download-app-image .responsive-image {
-   max-width: 100%;
-   height: auto;
-}
-
 html{
    font-size: 62.5%;
    overflow-x: hidden;
@@ -81,6 +72,24 @@ section{
    color: var(--black);
 }
 
+
+
+/* ********DOWLOAD APP********** */
+
+.download-app-image  {
+   display: flex;
+   justify-content: center; 
+   align-items: center; 
+}
+
+.download-app-image .responsive-image {
+   max-width: 100%;
+   height: auto;
+}
+
+
+
+/* ********BTN********** */
 .btn,
 .inline-btn{
    margin-top: 1rem;

@@ -84,6 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $query = $db->prepare($sql);
     $query->execute($data);
 
+    //TBD send User to homepage.
+
   }
 }
 

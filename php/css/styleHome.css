@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
 
-
-/* ********GENERAL********** */
 :root{
    --main-color:#E59524;
    --light-color:#666;
@@ -38,6 +36,17 @@
    background-color: var(--main-color);
 }
 
+.download-app-image  {
+   display: flex;
+   justify-content: center; 
+   align-items: center; 
+}
+
+.download-app-image .responsive-image {
+   max-width: 100%;
+   height: auto;
+}
+
 html{
    font-size: 62.5%;
    overflow-x: hidden;
@@ -72,8 +81,6 @@ section{
    color: var(--black);
 }
 
-
-/* ********BTN********** */
 .btn,
 .inline-btn{
    margin-top: 1rem;
@@ -108,9 +115,6 @@ section{
    align-items: flex-end;
 }
 
-
-
-/* ********HEADER********** */
 .header{
    position: sticky;
    top: 0; left: 0; right: 0;
@@ -118,10 +122,18 @@ section{
    box-shadow: var(--box-shodow);
 }
 
+.header .navbar.nav-1 .flex{
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+}
 
 .header .navbar.nav-2 .flex{
    padding-top: 0;
    padding-bottom: 0;
+}
+
+.header .navbar.nav-1{
+   background-color: var(--black);
 }
 
 .header .navbar.nav-2{
@@ -188,17 +200,11 @@ section{
    display: block;
 }
 
-
-
-/* ********MENU BTN********** */
 #menu-btn{
    font-size: 2.5rem;
    color: var(--black);
    display: none;
 }
-
-
-/* ********HOME********** */
 
 .home{
    background:url('/images/home-bg_opt1.jpg') no-repeat;
@@ -257,16 +263,12 @@ section{
    color: var(--main-color);
 }
 
-
-
-/* ********SERVICES********** */
 .services .box-container{
    display: grid;
    grid-template-columns: repeat(auto-fit, 30rem);
    gap: 2rem;
    justify-content: center;
    align-items: flex-start;
-   padding-top: 5rem;
 }
 
 .services .box-container .box{
@@ -274,6 +276,8 @@ section{
    box-shadow: var(--box-shodow);
    padding: 2rem;
    text-align: center;
+   min-height: 352px;
+   min-width: 300px;
 }
 
 .services .box-container .box img{
@@ -295,10 +299,6 @@ section{
    padding-top: .5rem;
 }
 
-
-
-
-/* ********LISTINGS********** */
 .listings .box-container{
    display: grid;
    row-gap: 2rem;
@@ -453,8 +453,6 @@ section{
    color: var(--light-color);
 }
 
-
-/* ********VIEW PROPERTY DETAILS********** */
 .view-property .details{
    background-color: var(--white);
    box-shadow: var(--box-shodow);
@@ -599,8 +597,6 @@ section{
    color: var(--white);
 }
 
-
-/* ********ABOUT US********** */
 .about .row{
    display: flex;
    flex-wrap: wrap;
@@ -635,9 +631,84 @@ section{
    color: var(--light-color);
 }
 
+.steps .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 30rem);
+   gap: 2rem;
+   justify-content: center;
+   align-items: flex-start;
+}
 
+.steps .box-container .box{
+   background-color: var(--white);
+   padding: 2rem;
+   text-align: center;
+   box-shadow: var(--box-shodow);
+}
 
-/* ********CONTACT US********** */
+.steps .box-container .box img{
+   height: 7rem;
+   margin: .5rem 0;
+}
+
+.steps .box-container .box h3{
+   padding: 1rem 0;
+   font-size: 2rem;
+   text-transform: capitalize;
+   color: var(--black);
+}
+
+.steps .box-container .box p{
+   line-height: 2;
+   font-size: 1.6rem;
+   color: var(--light-color);
+}
+
+.reviews .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 35rem);
+   gap: 2rem;
+   justify-content: center;
+   align-items: flex-start;
+}
+
+.reviews .box-container .box{
+   background-color: var(--white);
+   padding: 2rem;
+   box-shadow: var(--box-shodow);
+}
+
+.reviews .box-container .box .user{
+   display: flex;
+   align-items: center;
+   gap: 1.5rem;
+   margin-bottom: 1rem;
+}
+
+.reviews .box-container .box .user img{
+   height: 6rem;
+   width: 6rem;
+   border-radius: 50%;
+}
+
+.reviews .box-container .box .user h3{
+   font-size: 2rem;
+   color: var(--black);
+   padding-bottom: .3rem;
+}
+
+.reviews .box-container .box .user .stars i{
+   font-size: 1.5rem;
+   color: var(--main-color);
+}
+
+.reviews .box-container .box p{
+   line-height: 2;
+   padding-top: .5rem;
+   font-size: 1.6rem;
+   color: var(--light-color);
+}
+
 .contact .row{
    display: flex;
    flex-wrap: wrap;
@@ -682,8 +753,47 @@ section{
    resize: none;
 }
 
+.faq .box-container{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 2rem;
+   align-items: flex-start;
+}
 
-/* ********FILTERS********** */
+.faq .box-container .box{
+   flex: 1 1 40rem;
+   box-shadow: var(--box-shodow);
+}
+
+.faq .box-container .box h3{
+   padding: 1.5rem 2rem;
+   font-size: 2rem;
+   background-color: var(--black);
+   color: var(--white);
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 1rem;
+   cursor: pointer;
+}
+
+.faq .box-container .box p{
+   font-size: 1.6rem;
+   color: var(--light-color);
+   background-color: var(--white);
+   padding: 1.5rem 2rem;
+   line-height: 1.5;
+   display: none;
+}
+
+.faq .box-container .box.active p{
+   display: block;
+}
+
+.faq .box-container .box.active h3{
+   background-color: var(--main-color);
+}
+
 .filters form{
    background-color: var(--white);
    box-shadow: var(--box-shodow);
@@ -758,9 +868,6 @@ section{
    display: none;
 }
 
-
-
-/* ********FORM-CONTAINER********** */
 .form-container form{
    max-width: 50rem;
    margin: 0 auto;
@@ -800,9 +907,118 @@ section{
    text-decoration: underline;
 }
 
+.dashboard .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 35rem);
+   gap: 1.5rem;
+   justify-content: center;
+   align-items: flex-start;
+}
 
+.dashboard .box-container .box{
+   background-color: var(--white);
+   box-shadow: var(--box-shodow);
+   padding: 2rem;
+   text-align: center;
+   overflow-x: hidden;
+}
 
-/* ********MY LISTINGS********** */
+.dashboard .box-container .box h3{
+   font-size: 2.5rem;
+   color: var(--black);
+   text-transform: capitalize;
+}
+
+.dashboard .box-container .box p{
+   margin: 1.5rem 0;
+   font-size: 1.6rem;
+   background-color: var(--light-bg);
+   padding: 1.5rem;
+   color: var(--light-color);
+   overflow-x: hidden;
+   text-overflow: ellipsis;
+}
+
+.property-form form{
+   background-color: var(--white);
+   padding: 2rem;
+   box-shadow: var(--box-shodow);
+}
+
+.property-form form h3{
+   font-size: 3rem;
+   text-align: center;
+   padding-bottom: 1rem;
+   color: var(--black);
+   text-transform: capitalize;
+}
+
+.property-form form .flex{
+   display: flex;
+   flex-wrap: wrap;
+   column-gap: 1.5rem;
+   justify-content: space-between;
+   align-items: flex-end;
+}
+
+.property-form form .box{
+   flex: 1 1 40rem;
+}
+
+.property-form form .box .input{
+   width: 100%;
+   border: var(--border);
+   margin: 1rem 0;
+   padding: 1.4rem;
+   color: var(--black);
+   font-size: 1.8rem;
+}
+
+.property-form form textarea{
+   height: 20rem;
+   resize: none;
+}
+
+.property-form form .box .input option[selected]{
+   background-color: var(--black);
+   color: var(--white);
+}
+
+.property-form form .box .image{
+   height: 30rem;
+   width: 100%;
+   object-fit: contain;
+   padding-top: 1rem;
+   object-position: left;
+}
+
+.property-form form .box p{
+   font-size: 1.6rem;
+   color: var(--light-color);
+   padding-top: 1rem;
+}
+
+.property-form form .box p span{
+   color: var(--main-color);
+}
+
+.property-form form .checkbox{
+   display: flex;
+   justify-content: space-between;
+   padding-bottom: 1rem;
+   margin: .5rem 0;
+   flex-wrap: wrap;
+}
+
+.property-form form .checkbox .box{
+   flex: 1 1 20rem;
+}
+
+.property-form form .checkbox .box input{
+   margin-right: 1rem;
+   cursor: pointer;
+}
+
 .my-listings .box-container{
    display: grid;
    grid-template-columns: repeat(auto-fit, 35rem);
@@ -871,11 +1087,50 @@ section{
    color: var(--main-color);
 }
 
+.requests .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 35rem);
+   gap: 1.5rem;
+   justify-content: center;
+   align-items: flex-start;
+}
+
+.requests .box-container .box{
+   background-color: var(--white);
+   padding: 2rem;
+   padding-top: 1rem;
+   box-shadow: var(--box-shodow);
+}
+
+.requests .box-container .box p{
+   padding: .5rem 0;
+   line-height: 1.5;
+   font-size: 1.8rem;
+   color: var(--black);
+}
+
+.requests .box-container .box p span,
+.requests .box-container .box p a{
+   color: var(--light-color);
+}
+
+.requests .box-container .box p a:hover{
+   color: var(--main-color);
+   text-decoration: underline;
+}
 
 
-/* ********FOOTER********** */
+
+
+
+
+
+
+
+
+
 .footer{
-   background-color: var(--light-color);
+   background-color: var(--black);
 }
 
 .footer .flex{
@@ -935,6 +1190,11 @@ section{
 .footer .credit span{
    color: var(--main-color);
 }
+
+
+
+
+
 
 
 
@@ -1074,5 +1334,4 @@ section{
    .listings .box-container form .box .thumb{
       height: 20rem;
    }
-
 }

@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Just Sell</title>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="css/styleHome.css" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      />
+      <title>JustSell</title>
 
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/styleHome.css">
-        <title>JustSell</title>
-
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
+      <!-- Favicons -->
+      <link href="assets/img/favicon.png" rel="icon">
   </head>
 
 <footer class="footer">
@@ -23,9 +20,9 @@
 
     <div class="box">
         <a href="#"><i class="fas fa-phone"></i><span>+1 (415) 000-0000</span></a>
-        <a href="#"><i class="fas fa-phone"></i><span>+1 (415) 1111-1111</span></a>
-        <a href="#"><i class="fas fa-envelope"></i><span>JustSell@gJustSell.com</span></a>
-        <a href="#"><i class="fas fa-map-marker-alt"></i><span> 215 Rue Lakeshore Road, Sainte-Anne-de-Bellevue, QC H9X 3L9, Canada </span></a>
+        <a href="#"><i class="fas fa-phone"></i><span>1 (415) 1111-1111</span></a>
+        <a href="#"><i class="fas fa-envelope"></i><span>sJustSell@gJustSell.com</span></a>
+        <a href="#"><i class="fas fa-map-marker-alt"></i><span>mumbai, india - 400104</span></a>
     </div>
 
     <div class="box">
@@ -37,10 +34,10 @@
     </div>
 
     <div class="box">
-        <a href="#"><span>Facebook</span><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><span>Twitter</span><i class="fab fa-twitter"></i></a>
-        <a href="#"><span>Linkedin</span><i class="fab fa-linkedin"></i></a>
-        <a href="#"><span>Instagram</span><i class="fab fa-instagram"></i></a>
+        <a href="#"><span>facebook</span><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><span>twitter</span><i class="fab fa-twitter"></i></a>
+        <a href="#"><span>linkedin</span><i class="fab fa-linkedin"></i></a>
+        <a href="#"><span>instagram</span><i class="fab fa-instagram"></i></a>
 
     </div>
 

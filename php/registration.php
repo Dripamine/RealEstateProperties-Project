@@ -93,25 +93,38 @@ include "resources/header.php";
 ?>
 
 <p> <?=$errorMsgs ?> </p>
-<div class="regi-box">
-  <div class="form">
-<h1>Create An Account!</h1>  
-<form action="registration.php" method="POST">
-  <p>First Name: </p>
-  <input type="text" name="fName" id="fName" value="<?=$fName; ?>"/><br>
-  <p>Last Name: </p>
-  <input type="text" name="lName" id="lName" value="<?=$lName; ?>"/><br>
-  <p>Email: </p>
-  <input type="email" name="email" id="email" value="<?=$email; ?>"/><br>
-  <p>Username: </p>
-  <input type="text" name="username" id="username" value="<?=$username; ?>"/><br>
-  <p>Password: </p>
-  <input type="text" name="password" id="password"/><br>
-  <p>Confirm Password: </p>
-  <input type="text" name="passcomf" id="passcomf"/><br>
-  <p>already have an account? <a href="login.php">Log in here!</a></p>
-  <input type="submit" value="Register Now" />
-  </div>
+<div class="home">
+  <section class="center">
+    <form action="registration.php" method="POST">
+      <h3>Create An Account!</h3>  
+      <div class="box">
+        <p>First Name: </p>
+        <input class="input" type="text" name="fName" id="fName" value="<?=$fName; ?>"/>
+      </div>
+      <div class="box">
+        <p>Last Name: </p>
+        <input class="input" type="text" name="lName" id="lName" value="<?=$lName; ?>"/>
+      </div>
+      <div class="box">
+        <p>Email: </p>
+        <input class="input" type="email" name="email" id="email" value="<?=$email; ?>"/>
+      </div>
+      <div class="box">
+        <p>Username: </p>
+        <input class="input" type="text" name="username" id="username" value="<?=$username; ?>"/>
+      </div>
+      <div class="box">
+        <p>Password: </p>
+        <input class="input" type="text" name="password" id="password"/>
+      </div>
+      <div class="box">
+        <p>Confirm Password: </p>
+        <input class="input" type="text" name="passcomf" id="passcomf"/>
+      </div>
+      <h3>Already have an account? <a href="login.php">Log in here!</a></h3>
+      <input class="btn" type="submit" value="Register Now" />
+    </form>
+  </section>
 </div>
 
 <?php

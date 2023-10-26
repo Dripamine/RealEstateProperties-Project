@@ -51,15 +51,21 @@ include "resources/header.php";
 
 <p class="error"><?=$errorMsgs; ?></p>
 
-<div class="login">
+<div class="home">
+  <section class="center">
   <form action="login.php" method="POST">
-    <p>Username: </p>
-    <input id="username" name="username" type="text" />
-    <p>Password: </p>
-    <input id="password" name="password" type="text" />
-    <p>Don't have an account? <a href="registration.php"> Register now!</a> </p>
-    <input type="submit" value="Log in!" /> 
+    <div class="box">
+      <p>Username: </p>
+      <input id="username" name="username" type="text" />
+    </div>
+    <div class="box">
+      <p>Password: </p>
+      <input id="password" name="password" type="text" />
+      </div>
+    <h3>Don't have an account? <a href="registration.php"> Register now!</a> </h3>
+    <input class="btn" type="submit" value="Log in!" /> 
   </form>
+  </section>
 </div>
 
 <?php include "resources/footer.php"; ?>

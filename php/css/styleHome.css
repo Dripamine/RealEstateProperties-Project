@@ -36,6 +36,17 @@
    background-color: var(--main-color);
 }
 
+.download-app-image  {
+   display: flex;
+   justify-content: center; 
+   align-items: center; 
+}
+
+.download-app-image .responsive-image {
+   max-width: 100%;
+   height: auto;
+}
+
 html{
    font-size: 62.5%;
    overflow-x: hidden;
@@ -265,6 +276,8 @@ section{
    box-shadow: var(--box-shodow);
    padding: 2rem;
    text-align: center;
+   min-height: 352px;
+   min-width: 300px;
 }
 
 .services .box-container .box img{
@@ -1321,5 +1334,4 @@ section{
    .listings .box-container form .box .thumb{
       height: 20rem;
    }
-
 }

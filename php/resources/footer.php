@@ -10,8 +10,8 @@
       />
       <title>JustSell</title>
 
-      <!-- Favicons -->
-      <link href="assets/img/favicon.png" rel="icon">
+     <!-- Favicons -->
+     <link href="./images/small_icon.png" rel="icon">
   </head>
 
 <footer class="footer">
@@ -19,10 +19,10 @@
   <section class="flex">
 
     <div class="box">
-        <a href="#"><i class="fas fa-phone"></i><span>+1 (415) 000-0000</span></a>
-        <a href="#"><i class="fas fa-phone"></i><span>1 (415) 1111-1111</span></a>
-        <a href="#"><i class="fas fa-envelope"></i><span>sJustSell@gJustSell.com</span></a>
-        <a href="#"><i class="fas fa-map-marker-alt"></i><span>mumbai, india - 400104</span></a>
+        <a href="#"><i class="fas fa-phone"></i><span>+1 (415) 777-0000</span></a>
+        <a href="#"><i class="fas fa-phone"></i><span>+1 (415) 888-0000</span></a>
+        <a href="#"><i class="fas fa-envelope"></i><span>JustSell@gJustSell.com</span></a>
+        <a href="#"><i class="fas fa-map-marker-alt"></i><span>275 Rue Lakeshore Road, Sainte-Anne-de-Bellevue, QC H9X 3L9, Canada</span></a>
     </div>
 
     <div class="box">
@@ -34,10 +34,10 @@
     </div>
 
     <div class="box">
-        <a href="#"><span>facebook</span><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><span>twitter</span><i class="fab fa-twitter"></i></a>
-        <a href="#"><span>linkedin</span><i class="fab fa-linkedin"></i></a>
-        <a href="#"><span>instagram</span><i class="fab fa-instagram"></i></a>
+        <a href="#"><span>Facebook</span><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><span>Twitter</span><i class="fab fa-twitter"></i></a>
+        <a href="#"><span>LinkedIn</span><i class="fab fa-linkedin"></i></a>
+        <a href="#"><span>Instagram</span><i class="fab fa-instagram"></i></a>
 
     </div>
 

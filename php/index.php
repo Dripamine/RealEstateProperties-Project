@@ -1,4 +1,6 @@
 <?php
+require "resources/connect.php";
+
 include "resources/header.php";
 ?>
 

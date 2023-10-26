@@ -18,7 +18,7 @@
 
    <nav class="navbar nav-2">
       <section class="flex">
-         <a href="#home"><img src="resources/logo.png" height="80" width="220" alt="Home"/></a>
+         <a href="home.php"><img src="resources/logo.png" height="80" width="220" alt="Home"/></a>
 
          <!-- <div id="menu-btn" class="fas fa-bars"></div> -->
          <div class="menu">

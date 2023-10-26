@@ -4,7 +4,7 @@
 $type = "mysql";
 $host = "localhost";
 $dbName = "fsd10_uniform";
-$port = "8889"; //Benjamins port: 8889
+$port = "3306"; //Benjamins port: 8889
 $charset = "utf8";
 $dbUsername = "fsduser";
 $dbPassword = "myDBpw";

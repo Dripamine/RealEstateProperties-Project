@@ -2,24 +2,20 @@
 
 require "resources/connect.php";
 
-function validateIsEmptyData($array, $key){
-
-  //if ( !array_key_exists('txtTitle', $_POST) || $_POST['txtTitle'] == ""){
-    if (!array_key_exists($key, $array) || $array[$key] ==  ""){
-      return true; 
-    } else 
-    return false;
-  
-  }
+if ($IsLogIn){
+  //redirect
+  header("location: index.php");
+  die();
+}
 
 $errorMsgs = "";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
   //add validate Empty to a functions php
-  if (validateIsEmptyData($_POST, 'username')) $errorMsgs .= "Username is required. <br>";
+  if (IsEmpty($_POST, 'username')) $errorMsgs .= "Username is required. <br>";
 
-  if (validateIsEmptyData($_POST, 'password')) $errorMsgs .= "Password is required. <br>";
+  if (IsEmpty($_POST, 'password')) $errorMsgs .= "Password is required. <br>";
 
   if ($errorMsgs == ""){
     $sql = "SELECT * FROM logins WHERE username = :username";
@@ -27,15 +23,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 		$query->execute(["username"=> $_POST['username']]);
 		$data = $query->fetch();
 
+    print_r($data);
+
     if ($data != NULL){
 
-      if (password_verify($_POST['username'], $data['password'])){
+      if (password_verify($_POST['password'], $data['Password'])){
         //addlog here
 
-        //addcookie
+        $_SESSION['login'] = true;
 
-        //redirect - i dont think this works
-        header("location: home.php");
+        //redirect
+        header("location: index.php");
         die();
       } else {
         $errorMsgs .= "Invalid password.";
@@ -51,15 +49,21 @@ include "resources/header.php";
 
 <p class="error"><?=$errorMsgs; ?></p>
 
-<div class="login">
+<div class="home">
+  <section class="center">
   <form action="login.php" method="POST">
-    <p>Username: </p>
-    <input id="username" name="username" type="text" />
-    <p>Password: </p>
-    <input id="password" name="password" type="text" />
-    <p>Don't have an account? <a href="registration.php"> Register now!</a> </p>
-    <input type="submit" value="Log in!" /> 
+    <div class="box">
+      <p>Username: </p>
+      <input class="input" id="username" name="username" type="text" />
+    </div>
+    <div class="box">
+      <p>Password: </p>
+      <input class="input" id="password" name="password" type="password" />
+      </div>
+    <h3>Don't have an account? <a href="registration.php"> Register now!</a> </h3>
+    <input class="btn" type="submit" value="Log in!" /> 
   </form>
+  </section>
 </div>
 
 <?php include "resources/footer.php"; ?>

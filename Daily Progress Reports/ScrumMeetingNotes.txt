@@ -33,13 +33,25 @@ Friday October 20th -
 Monday October 23rd -
    Amine - Started the Contact Us page.
    Benjamin - created some sample data for DB, continued suffering with Registration page
+   Karina - search page done, added db samples 
 
-Tuesday October 24th
+Tuesday October 24th -
     Benjamin - Registration Page almost complete! TDB password hashing and checking for username already in use
     Amine - added the mail function for the contact form.
+    Karina - css updated, header updated, footer updated
 
-Wednesday October 25th
+Wednesday October 25th -
     Benjamin - Password hashing, and username validation finished. created login page, css tweaks
+    Karina - Listing page created but not finalized
 
-Thursday October 26th
+Thursday October 26th -
     Benjamin - Continued login page work. Almost finished. TDB Cookies. Added functions.php
+    Karina - Working listing page, entering db information to be able to test the function on the listing page.
+
+Friday October 27th -
+    Benjamin - 
+    Karina - after test: fixed link home on footer, fixed link contact us on footer, fixed link all listings us on footer, fixed several links on our header.
+
+Saturday October 28th -
+    Benjamin - 
+    Karina - create about us page (nothing fancy), create saved properties page (user needs to log in first)

@@ -39,6 +39,21 @@
 include "resources/header.php";
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="css/styleHome.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+   
+      <title>JustSell</title>
+
+      <!-- Favicons -->
+      <link href="assets/img/favicon.png" rel="icon">
+  </head> 
+
 <!-- contact section starts  -->
 
 <section class="contact">
@@ -66,6 +81,7 @@ include "resources/header.php";
 
 </div>
 
+</html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
@@ -80,3 +96,4 @@ include "resources/header.php";
 <?php
 include "resources/footer.php"
 ?>
+

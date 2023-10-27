@@ -37,3 +37,9 @@ Monday October 23rd -
 Tuesday October 24th
     Benjamin - Registration Page almost complete! TDB password hashing and checking for username already in use
     Amine - added the mail function for the contact form.
+
+Wednesday October 25th
+    Benjamin - Password hashing, and username validation finished. created login page, css tweaks
+
+Thursday October 26th
+    Benjamin - Continued login page work. Almost finished. TDB Cookies. Added functions.php

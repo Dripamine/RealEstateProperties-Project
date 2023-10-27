@@ -1,5 +1,13 @@
 <?php
 
+//setup Logs TBD ?monolog?
+
+session_start();
+
+$IsLogIn = $_SESSION['login'] ?? false;
+
+//require functions TBD
+
 //variables
 $type = "mysql";
 $host = "localhost";
@@ -14,3 +22,7 @@ $DSN = "{$type}:host={$host};dbname={$dbName};port={$port};charset={$charset}";
 
 //open new database connection
 $db = new PDO($DSN, $dbUsername, $dbPassword);
+
+require "resources/functions.php";
+
+?>

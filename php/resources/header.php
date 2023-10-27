@@ -3,8 +3,9 @@
   <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="css/styleHome.css" />
+      <link rel="stylesheet" href="resources/style.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
       <title>JustSell</title>
 
       <!-- Favicons -->
@@ -51,7 +52,7 @@
             <li><a href="#">My Account <i class="fas fa-angle-down"></i></a>
                <ul>
                   <?php if($IsLogIn) : ?>
-                     <li><a href="logout.php">Logout</a></li>
+                     <li><a href="resources/logout.php">Logout</a></li>
                   <?php else : ?>
                      <li><a href="login.php">Login Now</a></li>
                      <li><a href="registration.php">Register Now</a></li>

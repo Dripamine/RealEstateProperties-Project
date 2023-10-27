@@ -18,17 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
   if (IsEmpty($_POST, 'password')) $errorMsgs .= "Password is required. <br>";
 
   if ($errorMsgs == ""){
+    //if no errors get username from logins
     $sql = "SELECT * FROM logins WHERE username = :username";
 		$query = $db->prepare($sql);
 		$query->execute(["username"=> $_POST['username']]);
-		$data = $query->fetch();
 
-    print_r($data);
-
+    
     if ($data != NULL){
 
+      //if username exists verify password
       if (password_verify($_POST['password'], $data['Password'])){
-        //addlog here
+
+        //TDB addlog here
 
         $_SESSION['login'] = true;
 
@@ -49,6 +50,7 @@ include "resources/header.php";
 
 <p class="error"><?=$errorMsgs; ?></p>
 
+<!-- Login box -->
 <div class="home">
   <section class="center">
   <form action="login.php" method="POST">

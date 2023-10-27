@@ -22,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $sql = "SELECT * FROM logins WHERE username = :username";
 		$query = $db->prepare($sql);
 		$query->execute(["username"=> $_POST['username']]);
+    $data = $query->fetch();
 
-    
     if ($data != NULL){
 
       //if username exists verify password

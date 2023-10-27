@@ -183,6 +183,9 @@ if(isset($_COOKIE['user_id'])){
 
 <!-- services section ends -->
 
+<?php
+include "download_app.php";
+?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 

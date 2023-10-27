@@ -39,6 +39,21 @@
 include "resources/header.php";
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="css/styleHome.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+   
+      <title>JustSell</title>
+
+      <!-- Favicons -->
+      <link href="assets/img/favicon.png" rel="icon">
+  </head> 
+
 <!-- contact section starts  -->
 
 <section class="contact">
@@ -47,13 +62,13 @@ include "resources/header.php";
       <div class="image">
          <img src="images/getInTouch.png" alt="GetInTouch">
       </div>
-      <form action="" method="post">
+      <form action="process_contact.php" method="post">
          <h3>get in touch</h3>
          <input type="text" name="name" required maxlength="50" placeholder="enter your name" class="box">
          <input type="email" name="email" required maxlength="50" placeholder="enter your email" class="box">
-         <input type="number" name="number" required maxlength="10" max="9999999999" min="0" placeholder="enter your number" class="box">
+         <input type="number" name="phone" required maxlength="10" max="9999999999" min="0" placeholder="enter your number" class="box">
          <textarea name="message" placeholder="enter your message" required maxlength="1000" cols="30" rows="10" class="box"></textarea>
-         <input type="submit" value="send message" name="send" class="btn">
+         <input type="submit" value="send message" name="contact_submit" class="btn">
       </form>
    </div>
 
@@ -66,6 +81,7 @@ include "resources/header.php";
 
 </div>
 
+</html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
@@ -80,3 +96,4 @@ include "resources/header.php";
 <?php
 include "resources/footer.php"
 ?>
+

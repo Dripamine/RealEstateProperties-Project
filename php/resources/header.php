@@ -4,10 +4,7 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="css/styleHome.css" />
-      <link
-         rel="stylesheet"
-         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-      />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       <title>JustSell</title>
 
       <!-- Favicons -->
@@ -21,7 +18,7 @@
 
    <nav class="navbar nav-2">
       <section class="flex">
-         <a href="#home"><img src="resources/logo.png" height="80" width="220" alt="Home"/></a>
+         <a href="index.php"><img src="resources/logo.png" height="80" width="220" alt="Home"/></a>
 
          <!-- <div id="menu-btn" class="fas fa-bars"></div> -->
          <div class="menu">
@@ -53,11 +50,12 @@
             <li><a href="saved.php">Saved Properties<i class="far fa-heart"></i></a></li>
             <li><a href="#">My Account <i class="fas fa-angle-down"></i></a>
                <ul>
-                  <li><a href="#">Login Now</a></li>
-                  <li><a href="registration.php">Register Now</a></li>
-                  <?php if($user_id != ''){ ?>                  
-                  <li><a href="components/user_logout.php" onclick="return confirm('logout from this website?');">Logout</a>
-                  <?php } ?></li>
+                  <?php if($IsLogIn) : ?>
+                     <li><a href="logout.php">Logout</a></li>
+                  <?php else : ?>
+                     <li><a href="login.php">Login Now</a></li>
+                     <li><a href="registration.php">Register Now</a></li>
+                  <?php endif; ?>
                </ul>
             </li>
          </ul>

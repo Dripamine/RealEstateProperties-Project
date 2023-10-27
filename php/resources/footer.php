@@ -10,8 +10,8 @@
       />
       <title>JustSell</title>
 
-     <!-- Favicons -->
-     <link href="./images/small_icon.png" rel="icon">
+      <!-- Favicons -->
+      <link href="./images/small_icon.png" rel="icon">
   </head>
 
 <footer class="footer">
@@ -46,4 +46,3 @@
   <div class="credit">&copy; copyright @ <?= date('Y'); ?> by <span>JustSell.fake.org.jac</span> | All Rights Reserved!</div>
 
 </footer>
-

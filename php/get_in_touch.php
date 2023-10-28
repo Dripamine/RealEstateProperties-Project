@@ -1,39 +1,3 @@
-<?php  
-
-// include 'components/connect.php';
-
-// if(isset($_COOKIE['user_id'])){
-//    $user_id = $_COOKIE['user_id'];
-// }else{
-//    $user_id = '';
-// }
-
-// if(isset($_POST['send'])){
-
-//    $msg_id = create_unique_id();
-//    $name = $_POST['name'];
-//    $name = filter_var($name, FILTER_SANITIZE_STRING);
-//    $email = $_POST['email'];
-//    $email = filter_var($email, FILTER_SANITIZE_STRING);
-//    $number = $_POST['number'];
-//    $number = filter_var($number, FILTER_SANITIZE_STRING);
-//    $message = $_POST['message'];
-//    $message = filter_var($message, FILTER_SANITIZE_STRING);
-
-//    $verify_contact = $conn->prepare("SELECT * FROM `messages` WHERE name = ? AND email = ? AND number = ? AND message = ?");
-//    $verify_contact->execute([$name, $email, $number, $message]);
-
-//    if($verify_contact->rowCount() > 0){
-//       $warning_msg[] = 'message sent already!';
-//    }else{
-//       $send_message = $conn->prepare("INSERT INTO `messages`(id, name, email, number, message) VALUES(?,?,?,?,?)");
-//       $send_message->execute([$msg_id, $name, $email, $number, $message]);
-//       $success_msg[] = 'message send successfully!';
-//    }
-
-// }
-
-?>
 
 <?php
 require "resources/connect.php";
@@ -47,7 +11,7 @@ include "resources/header.php";
 
    <div class="row">
       <div class="image">
-         <img src="images/getInTouch.png" alt="GetInTouch">
+         <img src="images/getInTouch_1.png" alt="GetInTouch">
       </div>
       <form action="process_contact.php" method="post">
          <h3>get in touch</h3>

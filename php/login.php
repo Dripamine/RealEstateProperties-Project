@@ -31,7 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
         //TDB addlog here
 
+        // Set the "user_id" session variable with the user's ID
         $_SESSION['login'] = true;
+        $_SESSION['user_id'] = $data['LoginID'];
+
 
         //redirect
         header("location: index.php");

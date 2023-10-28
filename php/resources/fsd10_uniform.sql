@@ -7,6 +7,9 @@
 -- Server version: 5.7.24
 -- PHP Version: 8.0.1
 
+USE fsd10_uniform;
+
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -19,7 +22,8 @@ SET time_zone = "+00:00";
 -- Database: `fsd10_uniform`
 
 -- Table structure for table `admins`
-CREATE TABLE `admins` (
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE IF NOT EXISTS `admins` (
   `AdminID` int(11) NOT NULL,
   `LoginID` int(11) NOT NULL,
   `FirstName` varchar(30) NOT NULL,
@@ -29,13 +33,14 @@ CREATE TABLE `admins` (
 
 -- Dumping data for table `admins`
 -- Insert 3 records into the admins table
-INSERT INTO `admins` (`AdminID`, `LoginID`, `FirstName`, `LastName`, `Email`) VALUES
+INSERT IGNORE INTO `admins` (`AdminID`, `LoginID`, `FirstName`, `LastName`, `Email`) VALUES
 (1, 1, 'Admin1FirstName', 'Admin1LastName', 'teamuniformFSD10@GMAIL.COM'),
 (2, 2, 'Admin2FirstName', 'Admin2LastName', 'teamuniformFSD10@GMAIL.COM'),
 (3, 3, 'Admin3FirstName', 'Admin3LastName', 'teamuniformFSD10@GMAIL.COM');
 
 -- Table structure for table `agents`
-CREATE TABLE `agents` (
+DROP TABLE IF EXISTS `agents`;
+CREATE TABLE IF NOT EXISTS `agents` (
   `AgentID` int(11) NOT NULL,
   `LoginID` int(11) NOT NULL,
   `FirstName` varchar(30) NOT NULL,
@@ -46,14 +51,15 @@ CREATE TABLE `agents` (
 
 -- Dumping data for table `agents`
 -- Insert 3 records into the agents table
-INSERT INTO `agents` (`AgentID`, `LoginID`, `FirstName`, `LastName`, `Phone`, `Email`) VALUES
+INSERT IGNORE INTO `agents` (`AgentID`, `LoginID`, `FirstName`, `LastName`, `Phone`, `Email`) VALUES
 (1, 4, 'AgentJohn', 'Doe', '514 909 0909', 'AgentJohnDoe@agentjustsell.ca'),
 (2, 5, 'AgentJane', 'Smith', '514 909 0909', 'AgentJaneSmith@agentjustsell.ca'),
 (3, 6, 'AgentAlice', 'Johnson', '514 909 0909', 'AgentAliceJohnson@agentjustsell.ca');
 
 
 -- Table structure for table `image`
-CREATE TABLE `image` (
+DROP TABLE IF EXISTS `image`;
+CREATE TABLE IF NOT EXISTS `image` (
   `ImageID` int(11) NOT NULL,
   `PropertyID` int(11) NOT NULL,
   `ImagePath` varchar(255) NOT NULL,
@@ -62,7 +68,7 @@ CREATE TABLE `image` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Insert records into the image table
-INSERT INTO `image` (`ImageID`, `PropertyID`, `ImagePath`, `ImageFileName`, `Description`) VALUES
+INSERT IGNORE INTO `image` (`ImageID`, `PropertyID`, `ImagePath`, `ImageFileName`, `Description`) VALUES
 (0101, 01, 'images/PropertiesImages', 'House_01 (1).png', 'Front'),
 (0102, 01, 'images/PropertiesImages', 'House_01 (2).png','Back'),
 (0103, 01, 'images/PropertiesImages', 'House_01 (3).png','Location'),
@@ -84,7 +90,8 @@ INSERT INTO `image` (`ImageID`, `PropertyID`, `ImagePath`, `ImageFileName`, `Des
 
 
 -- Table structure for table `logins`
-CREATE TABLE `logins` (
+DROP TABLE IF EXISTS `logins`;
+CREATE TABLE IF NOT EXISTS `logins` (
   `LoginID` int(11) NOT NULL,
   `Username` varchar(30) NOT NULL,
   `Password` varchar(255) NOT NULL,
@@ -93,7 +100,7 @@ CREATE TABLE `logins` (
 
 -- Dumping data for table `logins`
 -- Insert 6 records into the logins table - 3 agents and 3 admins
-INSERT INTO `logins` (`LoginID`, `Username`, `Password`, `Permission`) VALUES
+INSERT IGNORE INTO `logins` (`LoginID`, `Username`, `Password`, `Permission`) VALUES
 (1, 'SuperAdmin1', 'Admin1', 3),
 (2, 'SuperAdmin2', 'Admin2', 3),
 (3, 'SuperAdmin3', 'Admin3', 3),
@@ -111,7 +118,8 @@ INSERT INTO `logins` (`LoginID`, `Username`, `Password`, `Permission`) VALUES
 
 
 -- Table structure for table `properties`
-CREATE TABLE `properties` (
+DROP TABLE IF EXISTS `properties]`;
+CREATE TABLE IF NOT EXISTS `properties` (
   `PropertyID` int(11) NOT NULL,
   `AgentID` int(11) NOT NULL,
   `StreetNum` mediumint(8) UNSIGNED NOT NULL,
@@ -134,7 +142,7 @@ CREATE TABLE `properties` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Insert 6 records into the properties table
-INSERT INTO `properties` 
+INSERT IGNORE INTO `properties` 
 (`PropertyID`, `AgentID`, `StreetNum`, `StreetName`, `City`, `Province`, `Postal`, `Description`, `Price`, `Bathrooms`, `Bedrooms`, `Floors`, `size`, `furnished`, `PropertyType`, `YearOfBuilt`, `Amenities`, `sellOption`, `Construction Status`) VALUES
 (1, 1, '11', 'Broadway', 'New York', 'NY', 'NY10101', 'Historic apartment in the theater district. A piece of New York history.', 1200000.00, 2, 2, 1, '1234567', 'furnished', 'House', 2020, 'Pool, Sauna, Deck', 'Sale', 'Ready to Move'),
 (2, 2, '9401', 'Union St', 'San Francisco', 'CA', 'CA10101', 'Contemporary penthouse with stunning city views. Ideal for urban living.', 1800000.00, 3, 2, 2, '1234567', 'furnished', 'Apartment', 2021, 'Pool, Sauna', 'Resale', 'Ready to Move'),
@@ -144,7 +152,8 @@ INSERT INTO `properties`
 (6, 3, '331', 'Beach Blvd', 'Miami', 'FL', 'FL10101', 'Tropical paradise with a private beach. Escape to your own slice of heaven.', 3500000.00, 4, 5, 2, '1234567', 'furnished', 'Apartment', 2005, 'No Amenities Included', 'Sale', 'Ready to Move');
 
 -- Table structure for table `propertyoffers`
-CREATE TABLE `propertyoffers` (
+DROP TABLE IF EXISTS `propertyoffers`;
+CREATE TABLE IF NOT EXISTS `propertyoffers` (
   `OfferID` int(11) NOT NULL,
   `UserID` int(11) NOT NULL,
   `PropertyID` int(11) NOT NULL,
@@ -153,7 +162,7 @@ CREATE TABLE `propertyoffers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Insert records into the propertyoffers table
-INSERT INTO `propertyoffers` (`OfferID`, `UserID`, `PropertyID`, `OfferAmount`, `OfferStatus`) VALUES
+INSERT IGNORE INTO `propertyoffers` (`OfferID`, `UserID`, `PropertyID`, `OfferAmount`, `OfferStatus`) VALUES
 (1, 7, 1, 125000.00, 'Pending'),
 (2, 8, 2, 195000.00, 'Pending'),
 (3, 9, 3, 522000.00, 'Pending'),
@@ -176,8 +185,8 @@ INSERT INTO `propertyoffers` (`OfferID`, `UserID`, `PropertyID`, `OfferAmount`, 
 --
 -- Table structure for table `users`
 --
-
-CREATE TABLE `users` (
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
   `UserID` int(11) NOT NULL,
   `LoginID` int(11) NOT NULL,
   `Email` varchar(30) NOT NULL,
@@ -192,7 +201,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Insert records into the users table
-INSERT INTO `users` (`UserID`,`LoginID`, `Email`, `FirstName`, `LastName`, `Phone`, `StreetNum`, `StreetName`, `City`, `Province`, `Postal`) VALUES
+INSERT IGNORE INTO `users` (`UserID`,`LoginID`, `Email`, `FirstName`, `LastName`, `Phone`, `StreetNum`, `StreetName`, `City`, `Province`, `Postal`) VALUES
 (7, 7, 'user1@example.com', 'User1', 'User1Last', '123-456-7890', 123, 'Main St', 'New York', 'NY', '10001'),
 (8, 8, 'user2@example.com', 'User2', 'User2Last', '987-654-3210', 456, 'Elm St', 'Los Angeles', 'CA', '90001'),
 (9, 9, 'user3@example.com', 'User3', 'User3Last', '555-123-4567', 789, 'Oak St', 'Chicago', 'IL', '60601'),

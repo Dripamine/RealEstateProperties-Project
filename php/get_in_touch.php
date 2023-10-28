@@ -1,4 +1,3 @@
-
 <?php
 require "resources/connect.php";
 
@@ -13,7 +12,7 @@ include "resources/header.php";
       <div class="image">
          <img src="images/getInTouch_1.png" alt="GetInTouch">
       </div>
-      <form action="process_contact.php" method="post">
+      <form action="resources/process_contact.php" method="post">
          <h3>get in touch</h3>
          <input type="text" name="name" required maxlength="50" placeholder="enter your name" class="box">
          <input type="email" name="email" required maxlength="50" placeholder="enter your email" class="box">

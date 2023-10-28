@@ -49,7 +49,7 @@
 
          <ul>
             <li><a href="saved.php">Saved Properties<i class="far fa-heart"></i></a></li>
-            <li><a href="#">My Account <i class="fas fa-angle-down"></i></a>
+            <li><a href="user.php">My Account <i class="fas fa-angle-down"></i></a>
                <ul>
                   <?php if($IsLogIn) : ?>
                      <li><a href="resources/logout.php">Logout</a></li>

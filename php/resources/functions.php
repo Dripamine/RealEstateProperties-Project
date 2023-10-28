@@ -10,16 +10,4 @@ function IsEmpty($array, $key){
 
 }
 
-function logOut(){
-  session_start();
-
-  $_SESSION = [];
-
-  session_destroy();
-
-  header("location:index.php");
-
-  die();
-}
-
 ?>

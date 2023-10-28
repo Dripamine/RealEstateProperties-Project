@@ -23,6 +23,8 @@ if(isset($_GET['get_id'])){
 include 'resources/save_send.php';
 
 ?>
+
+<!-- NOTE;  why does this have a head? it includes the header.php at the top. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>

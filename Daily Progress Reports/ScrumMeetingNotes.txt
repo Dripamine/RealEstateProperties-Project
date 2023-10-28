@@ -50,7 +50,7 @@ Thursday October 26th -
     Karina - Working listing page, entering db information to be able to test the function on the listing page.
 
 Friday October 27th -
-    Benjamin - 
+    Benjamin - Cleaning; organizing, reduce redundancies, add comments (i always forget those), minor fixes
     Karina - after test: fixed link home on footer, fixed link contact us on footer, fixed link all listings us on footer, fixed several links on our header.
 
 Saturday October 28th -

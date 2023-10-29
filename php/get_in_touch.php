@@ -1,5 +1,5 @@
 <?php
-require "resources/connect.php";
+require "resources/connect.php"; //kvp: can we delete this?
 
 include "resources/header.php";
 ?>
@@ -9,9 +9,11 @@ include "resources/header.php";
 <section class="contact">
 
    <div class="row">
+
       <div class="image">
          <img src="images/getInTouch_1.png" alt="GetInTouch">
       </div>
+      
       <form action="resources/process_contact.php" method="post">
          <h3>get in touch</h3>
          <input type="text" name="name" required maxlength="50" placeholder="enter your name" class="box">

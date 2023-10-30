@@ -12,14 +12,14 @@ include "resources/header.php";
    <div class="box-container">
       <?php
          $total_images = 0;
-         $select_properties = $conn->prepare("SELECT * FROM `property` ORDER BY date DESC LIMIT 6");
+         $select_properties = $db->prepare("SELECT * FROM `properties` ORDER BY price DESC LIMIT 6");
          $select_properties->execute();
          if($select_properties->rowCount() > 0){
             while($fetch_property = $select_properties->fetch(PDO::FETCH_ASSOC)){
                
-            $select_user = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
-            $select_user->execute([$fetch_property['user_id']]);
-            $fetch_user = $select_user->fetch(PDO::FETCH_ASSOC);
+            // $select_user = $db->prepare("SELECT * FROM `users` WHERE userid = 7"); 
+            // $select_user->execute();
+            // $fetch_user = $select_user->fetch(PDO::FETCH_ASSOC);
 
             if(!empty($fetch_property['image_02'])){
                $image_coutn_02 = 1;
@@ -44,8 +44,8 @@ include "resources/header.php";
 
             $total_images = (1 + $image_coutn_02 + $image_coutn_03 + $image_coutn_04 + $image_coutn_05);
 
-            $select_saved = $conn->prepare("SELECT * FROM `saved` WHERE property_id = ? and user_id = ?");
-            $select_saved->execute([$fetch_property['id'], $user_id]);
+            $select_saved = $db->prepare("SELECT * FROM `saved` WHERE property_id = ? and user_id = ?");
+            $select_saved->execute([$fetch_property['propertyid'], $user_id]);
 
       ?>
       <form action="" method="POST">

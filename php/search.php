@@ -113,7 +113,7 @@ if(isset($_POST['h_search'])){
    $h_max = $_POST['h_max'];
    $h_max = filter_var($h_max, FILTER_SANITIZE_STRING);
 
-   $select_properties = $db->prepare("SELECT * FROM `property` WHERE address LIKE '%{$h_location}%' AND type LIKE '%{$h_type}%' AND offer LIKE '%{$h_offer}%' AND price BETWEEN $h_min AND $h_max ORDER BY date DESC");
+   $select_properties = $conn->prepare("SELECT * FROM `property` WHERE address LIKE '%{$h_location}%' AND type LIKE '%{$h_type}%' AND offer LIKE '%{$h_offer}%' AND price BETWEEN $h_min AND $h_max ORDER BY date DESC");
    $select_properties->execute();
 
 }elseif(isset($_POST['filter_search'])){
@@ -135,11 +135,11 @@ if(isset($_POST['h_search'])){
    $furnished = $_POST['furnished'];
    $furnished = filter_var($furnished, FILTER_SANITIZE_STRING);
 
-   $select_properties = $db->prepare("SELECT * FROM `property` WHERE address LIKE '%{$location}%' AND type LIKE '%{$type}%' AND offer LIKE '%{$offer}%' AND bhk LIKE '%{$bhk}%' AND status LIKE '%{$status}%' AND furnished LIKE '%{$furnished}%' AND price BETWEEN $min AND $max ORDER BY date DESC");
+   $select_properties = $conn->prepare("SELECT * FROM `property` WHERE address LIKE '%{$location}%' AND type LIKE '%{$type}%' AND offer LIKE '%{$offer}%' AND bhk LIKE '%{$bhk}%' AND status LIKE '%{$status}%' AND furnished LIKE '%{$furnished}%' AND price BETWEEN $min AND $max ORDER BY date DESC");
    $select_properties->execute();
 
 }else{
-   // $select_properties = $db->prepare("SELECT * FROM `property` ORDER BY date DESC LIMIT 6");
+   // $select_properties = $conn->prepare("SELECT * FROM `property` ORDER BY date DESC LIMIT 6");
    // $select_properties->execute();
 }
 
@@ -162,7 +162,7 @@ if(isset($_POST['h_search'])){
          $total_images = 0;
          if(false){ //$select_properties->rowCount() > 0
             while($fetch_property = $select_properties->fetch(PDO::FETCH_ASSOC)){
-            $select_user = $db->prepare("SELECT * FROM `users` WHERE id = ?");
+            $select_user = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
             $select_user->execute([$fetch_property['user_id']]);
             $fetch_user = $select_user->fetch(PDO::FETCH_ASSOC);
 
@@ -189,7 +189,7 @@ if(isset($_POST['h_search'])){
 
             $total_images = (1 + $image_coutn_02 + $image_coutn_03 + $image_coutn_04 + $image_coutn_05);
 
-            $select_saved = $db->prepare("SELECT * FROM `saved` WHERE property_id = ? and user_id = ?");
+            $select_saved = $conn->prepare("SELECT * FROM `saved` WHERE property_id = ? and user_id = ?");
             $select_saved->execute([$fetch_property['id'], $user_id]);
 
       ?>

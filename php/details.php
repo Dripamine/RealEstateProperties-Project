@@ -56,18 +56,18 @@ include 'resources/save_send.php';
    <h1 class="heading">Property Details</h1>
 
    <?php
-      $select_properties = $db->prepare("SELECT * FROM `property` WHERE id = ? ORDER BY date DESC LIMIT 1");
+      $select_properties = $conn->prepare("SELECT * FROM `property` WHERE id = ? ORDER BY date DESC LIMIT 1");
       $select_properties->execute([$get_id]);
       if($select_properties->rowCount() > 0){
          while($fetch_property = $select_properties->fetch(PDO::FETCH_ASSOC)){
 
          $property_id = $fetch_property['id'];
 
-         $select_user = $db->prepare("SELECT * FROM `users` WHERE id = ?");
+         $select_user = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
          $select_user->execute([$fetch_property['user_id']]);
          $fetch_user = $select_user->fetch(PDO::FETCH_ASSOC);
 
-         $select_saved = $db->prepare("SELECT * FROM `saved` WHERE property_id = ? and user_id = ?");
+         $select_saved = $conn->prepare("SELECT * FROM `saved` WHERE property_id = ? and user_id = ?");
          $select_saved->execute([$fetch_property['id'], $user_id]);
    ?>
    <div class="details">

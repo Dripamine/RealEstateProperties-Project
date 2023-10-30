@@ -33,7 +33,7 @@
                </li>
                <li><a href="#">See Offers<i class="fas fa-angle-down"></i></a>
                   <ul>
-                     <li><a href="make_offer.php">Make an Offer</a></li> 
+                     <li><a href="#">Make an Offer</a></li> 
                      <li><a href="#">Offer Status</a></li>
                      <li><a href="#">All Offers</a></li>
                   </ul>

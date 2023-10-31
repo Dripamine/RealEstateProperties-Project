@@ -7,9 +7,9 @@ if ($IsLogIn && isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 
     // Fetch user information from the database
-    $select_user = $db->prepare("SELECT u.*, l.Username FROM `users` u
-    JOIN `logins` l ON u.LoginID = l.LoginID
-    WHERE u.LoginID = :login_id");
+    $select_user = $db->prepare("SELECT u.*, l.Username, l.Permission FROM `users` u
+JOIN `logins` l ON u.LoginID = l.LoginID
+WHERE u.LoginID = :login_id");
     if ($select_user->execute(['login_id' => $user_id])) {
         $user_data = $select_user->fetch(PDO::FETCH_ASSOC);
     } else {
@@ -19,6 +19,8 @@ if ($IsLogIn && isset($_SESSION['user_id'])) {
     header("location: login.php"); // Redirect to the login page
     die();
 }
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Handle the form submission for editing user information
@@ -261,6 +263,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </section>
 
+    <?php
+    if ($user_data) {
+        // Debug: Display user_data
+        echo "<pre>";
+        print_r($user_data);
+        echo "</pre>";
+    } ?>
+
+    <!-- Admin Button -->
+    <?php if ($user_data['Permission'] == 3) { ?>
+        <button class=inline-btn type="submit" onclick="location.href='admin_panel.php'">Admin Panel</button>
+    <?php } ?>
+
+    <!-- Admin Button -->
+    <?php if ($user_data['Permission'] == 2) { ?>
+        <button class=inline-btn type="submit" onclick="location.href='agent_panel.php'">Agent Panel</button>
+    <?php } ?>
 
 </body>
 

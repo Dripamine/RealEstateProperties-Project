@@ -9,7 +9,7 @@
       <title>Just Sell</title>
 
       <!-- Favicons -->
-      <link href="assets/img/favicon.png" rel="icon">
+      <link href="images/favicon.png" rel="icon">
   </head>
 
 
@@ -23,33 +23,34 @@
 
          <!-- <div id="menu-btn" class="fas fa-bars"></div> -->
          <div class="menu">
-            <ul>
-               <li><a href="#">My Listings<i class="fas fa-angle-down"></i></a>
-                  <ul>
-                     <li><a href="#">Option 1</a></li>
-                     <li><a href="#">Option 2</a></li>
-                     <li><a href="#">Option 3</a></li>
-                  </ul>
-               </li>
+            <ul>               
                <li><a href="#">Listings<i class="fas fa-angle-down"></i></a>
                   <ul>
-                     <li><a href="search.php">Search</a></li>
+                     <li><a href="search.php">More Search</a></li>
                      <li><a href="latest_listings.php">Latest Listings</a></li>
+                     <li><a href="search.php">All Listings</a></li>
+                  </ul>
+               </li>
+               <li><a href="#">See Offers<i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="#">Make an Offer</a></li> 
+                     <li><a href="#">Offer Status</a></li>
+                     <li><a href="#">All Offers</a></li>
                   </ul>
                </li>
                <li><a href="#">Help<i class="fas fa-angle-down"></i></a>
                   <ul>
-                     <li><a href="about.php">About Us</a></i></li>
+                     <li><a href="about_us.php">About Us</a></i></li>
                      <li><a href="get_in_touch.php">Contact Us</a></i></li>
-                     <li><a href="#">Option 3</a></i></li>
+                     <li><a href="about_us.php">Our Main Location</a></i></li>
                   </ul>
                </li>
             </ul>
          </div>
 
          <ul>
-            <li><a href="saved.php">Saved Properties<i class="far fa-heart"></i></a></li>
-            <li><a href="user.php">My Account <i class="fas fa-angle-down"></i></a>
+            <li><a href="saved.php">See Offers Status<i class="far fa-heart"></i></a></li>
+            <li><a href="user.php">My Account<i class="fas fa-angle-down"></i></a>
                <ul>
                   <?php if($IsLogIn) : ?>
                      <li><a href="resources/logout.php">Logout</a></li>

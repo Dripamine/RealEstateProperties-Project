@@ -61,4 +61,4 @@ Tuesday October 31st - Happy Halloween!
     Benjamin - Started Admin / Agent Panel, 000webhost setup.
 
 Wednesday Novemeber 1st
-    Benjamin - Admin/Agent panel
+    Benjamin - Admin/Agent panel; Delete function, Add/edit function

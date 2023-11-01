@@ -10,6 +10,7 @@ if (!$IsLogIn){
 if ($IsLogIn){
 
 
+  //get all login data
   $sql = "SELECT * FROM logins WHERE LoginID = :id";
 	$query = $db->prepare($sql);
 	$query->execute(["id"=> $_SESSION['user_id']]);
@@ -34,18 +35,20 @@ if ($IsLogIn){
     $query->execute(["id"=> $agentID]);
     
     ?>
-    <div>
-      <section>
+    <div class="home">
+      <section class="center">
         <?php while($data = $query->fetch()) : ?>
         <div class="box">
           <p>Property Number: <?=$data['PropertyID'];?> </p>
           <p>Address: <?=$data['StreetNum'];?>, <?=$data['StreetName'];?>, <?=$data['Postal'];?></p>
           <p>Price: <?=$data['Price'];?></p>
-          <p>Edit / Delete</p>
+          <a href="add.php?item=<?=$data['PropertyID'];?>">Edit</a>
+          <a href="delete.php?item=<?=$data['PropertyID'];?>">Delete</a>
         </div>
           <? endwhile?>
+          <h3>Add a listing</h3>
       </section>
-      <section>
+      <section class="center">
         <?php
         //fetch all offers
         $sql = "SELECT o.*, p.AgentID FROM `propertyoffers` o JOIN `properties` p ON o.PropertyID = p.PropertyID WHERE AgentID = :id";
@@ -57,7 +60,7 @@ if ($IsLogIn){
             <p>Offer for Property Number: <?=$data['PropertyID'];?></p>
             <p>Amount: <?=$data['OfferAmount'];?></p>
             <p>Status:<?=$data['OfferStatus'];?></p>
-            <p>Edit / Delete</p>
+            <p>Accept / Reject / Delete</p>
           </div>
         <? endwhile?>
       </section>
@@ -81,18 +84,20 @@ if ($IsLogIn){
     $query->execute();
     
     ?>
-    <div>
-      <section>
+    <div class="home">
+      <section class="center">
         <?php while($data = $query->fetch()) : ?>
         <div class="box">
           <p>Property Number: <?=$data['PropertyID'];?> </p>
           <p>Address: <?=$data['StreetNum'];?>, <?=$data['StreetName'];?>, <?=$data['Postal'];?></p>
           <p>Price: <?=$data['Price'];?></p>
-          <p>Edit / Delete</p>
+          <a href="add.php?item=<?=$data['PropertyID'];?>">Edit</a>
+          <a href="delete.php?item=<?=$data['PropertyID'];?>">Delete</a>
         </div>
           <? endwhile?>
+          <h3><a href="add.php">Add a listing</a></h3>
       </section>
-      <section>
+      <section class="center">
         <?php
         //fetch all offers
         $sql = "SELECT * FROM propertyoffers";
@@ -104,11 +109,11 @@ if ($IsLogIn){
             <p>Offer for Property Number: <?=$data['PropertyID'];?></p>
             <p>Amount: <?=$data['OfferAmount'];?></p>
             <p>Status:<?=$data['OfferStatus'];?></p>
-            <p>Edit / Delete</p>
+            <p>Accept / Reject / Delete</p>
           </div>
         <? endwhile?>
       </section>
-      <section>
+      <section class="center">
         <?php
         //fetch all users
         $sql = "SELECT * FROM users";

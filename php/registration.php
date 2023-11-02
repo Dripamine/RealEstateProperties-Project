@@ -95,6 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     // Log in and send users to index.php
     // TBD: Add log here
     $_SESSION['login'] = true;
+    $_SESSION['user_id'] = $data['LoginID'];
     header("location: index.php");
     die();
   }
@@ -103,7 +104,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
 include "resources/header.php";
 ?>
 
-<!-- Registration box -->
 <!-- Registration box -->
 <div class="home">
   <section class="center">

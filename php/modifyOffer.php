@@ -15,7 +15,7 @@ if ($data["Permission"] == 1){
   die();
 } else {
   //check if item is exists in $_GET
-  if (array_key_exists('item', $_GET) ){
+  if (!array_key_exists('item', $_GET) ){
     Echo "error 404-1";
     ?>
     <a href="index.php">Return to home</a>

@@ -21,8 +21,7 @@
    <nav class="navbar nav-2">
       <section class="flex">
          <a href="index.php"><img src="resources/logo.png" height="80" width="220" alt="Home"/></a>
-
-         <!-- <div id="menu-btn" class="fas fa-bars"></div> -->
+      
          <div class="menu">
             <ul>               
                <li><a href="#">Listings<i class="fas fa-angle-down"></i></a>
@@ -30,13 +29,6 @@
                      <li><a href="search.php">More Search</a></li>
                      <li><a href="latest_listings.php">Latest Listings</a></li>
                      <li><a href="all_listings.php">All Listings</a></li>
-                  </ul>
-               </li>
-               <li><a href="#">See Offers<i class="fas fa-angle-down"></i></a>
-                  <ul>
-                     <li><a href="#">Make an Offer</a></li> 
-                     <li><a href="#">Offer Status</a></li>
-                     <li><a href="#">All Offers</a></li>
                   </ul>
                </li>
                <li><a href="#">Help<i class="fas fa-angle-down"></i></a>
@@ -49,11 +41,14 @@
             </ul>
          </div>
 
-         <ul>
-            <li><a href="saved.php">See Offers Status<i class="far fa-heart"></i></a></li>
+         <ul> 
+            <?php if($IsLogIn) : ?>
+            <li><a href="user.php">User Settings<i class="far fa-user"></i></a></li>
+            <?php endif; ?>
             <li><a href="user.php">My Account<i class="fas fa-angle-down"></i></a>
                <ul>
                   <?php if($IsLogIn) : ?>
+                     <li><a href="user.php">User Settings</a></li>
                      <li><a href="resources/logout.php">Logout</a></li>
                   <?php else : ?>
                      <li><a href="login.php">Login Now</a></li>

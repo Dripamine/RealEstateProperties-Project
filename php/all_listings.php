@@ -1,9 +1,16 @@
 <?php
 require "resources/connect.php";
-
 include "resources/header.php";
-?>
 
+// Latest listings limited to 6. If we want to change the limit of the number of the houses, we just need to change from 6 to another number.
+if (isset($_GET['is_latest_listings_only']) && $_GET['is_latest_listings_only'] == '6') {
+   $sqlLimit = "LIMIT 2"; 
+} else {
+   $sqlLimit = "";  
+}
+
+
+?>
 
 <!-- all listings section starts  -->
 
@@ -21,7 +28,7 @@ include "resources/header.php";
                FROM image 
                WHERE image.PropertyID = properties.PropertyID
             )
-            ORDER BY properties.PropertyID DESC;");
+            ORDER BY properties.PropertyID DESC $sqlLimit;");
          $select_properties->execute();
          if($select_properties->rowCount() > 0){
             while($fetch_property = $select_properties->fetch(PDO::FETCH_ASSOC)){
@@ -33,13 +40,6 @@ include "resources/header.php";
             <div class="thumb">                      
                <img src="images/PropertiesImages/<?= $fetch_property['ImageFileName']; ?>" alt="Missing the property picture">
             </div>
-            <!-- <div class="admin">
-               <h3>JS</h3>
-               <div>
-                  <p>Description</p>
-                  <span>Description from $db</span>
-               </div>
-            </div> -->
          </div>
          <div class="box">
             <div class="price"><i class="fas fa-dollar-sign"></i><span><?= $fetch_property['Price']; ?></span></div>

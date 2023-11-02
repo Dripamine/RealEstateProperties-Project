@@ -56,3 +56,9 @@ Friday October 27th -
 Saturday October 28th -
     Benjamin - 
     Karina - create about us page (nothing fancy), create saved properties page (user needs to log in first)
+
+Tuesday October 31st - Happy Halloween!
+    Benjamin - Started Admin / Agent Panel, 000webhost setup.
+
+Wednesday Novemeber 1st
+    Benjamin - Admin/Agent panel; Delete function, Add/edit function

@@ -14,34 +14,35 @@ include "resources/header.php";
          <div class="flex">
             <div class="box">
                <p>Location</p>
-               <input type="text" name="location" required maxlength="50" placeholder="Search by city or Postal code" class="input">
+               <input type="text" name="Location" required maxlength="50" placeholder="Search by city or Postal code" class="input">
             </div>
             <div class="box">
                <p>Offer type</p>
-               <select name="offer" class="input" required>
+               <select name="sellOption" class="input" required>
                   <option value="sale">Sale</option>
                   <option value="resale">Resale</option>
-                  <option value="rent">Rent</option>
+                  <option value="rent">Leasing</option>
                </select>
             </div>
             <div class="box">
                <p>Property type</p>
-               <select name="type" class="input" required>
-                  <option value="flat">Apartment</option>
-                  <option value="house">House</option>
-                  <option value="shop">Duplex or Triplex</option>
-                  <option value="shop">Condo</option>
+               <select name="PropertyType" class="input" required>
+                  <option value="Apartment">Apartment</option>
+                  <option value="House">House</option>
+                  <option value="Duplex or Triplex">Duplex or Triplex</option>
+                  <option value="Condo">Condo</option>
+                  <option value="Comercial Building">Comercial Building</option>
                </select>
             </div>
             <div class="box">
-               <p>Rooms</p>
-               <select name="bhk" class="input" required>
-                  <option value="1">Studio</option>
-                  <option value="2">2 1/2</option>
-                  <option value="3">3 1/2</option>
-                  <option value="4">4 1/2</option>
-                  <option value="5">5 1/2</option>
-                  <option value="6">6 1/2 and Larger</option>
+               <p>Bedrooms</p>
+               <select name="Bedrooms" class="input" required>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6+</option>
                   
                </select>
             </div>
@@ -73,21 +74,21 @@ include "resources/header.php";
                   <option value="1000000">1M</option>
                </select>
             </div>
-            <div class="box">
+            <!-- <div class="box">
                <p>Status</p>
                <select name="status" class="input" required>
                   <option value="ready to move">Ready to move</option>
                   <option value="under construction">Under construction</option>
                </select>
-            </div>
-            <div class="box">
+            </div> -->
+            <!-- <div class="box">
                <p>Furnished</p>
                <select name="furnished" class="input" required>
                   <option value="unfurnished">Unfurnished</option>
                   <option value="furnished">Furnished</option>
                   <option value="semi-furnished">Semi-furnished</option>
                </select>
-            </div>
+            </div> -->
          </div>
          <input type="submit" value="search property" name="filter_search" class="btn">
    </form>
@@ -102,18 +103,18 @@ include "resources/header.php";
 
 if(isset($_POST['h_search'])){
 
-   $h_location = $_POST['h_location'];
+   $h_location = $_POST['Location'];
    $h_location = filter_var($h_location, FILTER_SANITIZE_STRING);
-   $h_type = $_POST['h_type'];
+   $h_type = $_POST['PropertyType'];
    $h_type = filter_var($h_type, FILTER_SANITIZE_STRING);
-   $h_offer = $_POST['h_offer'];
+   $h_offer = $_POST['sellOption'];
    $h_offer = filter_var($h_offer, FILTER_SANITIZE_STRING);
-   $h_min = $_POST['h_min'];
+   $h_min = $_POST['min'];
    $h_min = filter_var($h_min, FILTER_SANITIZE_STRING);
-   $h_max = $_POST['h_max'];
+   $h_max = $_POST['max'];
    $h_max = filter_var($h_max, FILTER_SANITIZE_STRING);
 
-   $select_properties = $conn->prepare("SELECT * FROM `property` WHERE address LIKE '%{$h_location}%' AND type LIKE '%{$h_type}%' AND offer LIKE '%{$h_offer}%' AND price BETWEEN $h_min AND $h_max ORDER BY date DESC");
+   $select_properties = $db->prepare("SELECT * FROM `properties` WHERE address LIKE '%{$h_location}%' AND type LIKE '%{$h_type}%' AND offer LIKE '%{$h_offer}%' AND price BETWEEN $h_min AND $h_max ORDER BY date DESC");
    $select_properties->execute();
 
 }elseif(isset($_POST['filter_search'])){
@@ -135,11 +136,11 @@ if(isset($_POST['h_search'])){
    $furnished = $_POST['furnished'];
    $furnished = filter_var($furnished, FILTER_SANITIZE_STRING);
 
-   $select_properties = $conn->prepare("SELECT * FROM `property` WHERE address LIKE '%{$location}%' AND type LIKE '%{$type}%' AND offer LIKE '%{$offer}%' AND bhk LIKE '%{$bhk}%' AND status LIKE '%{$status}%' AND furnished LIKE '%{$furnished}%' AND price BETWEEN $min AND $max ORDER BY date DESC");
+   $select_properties = $db->prepare("SELECT * FROM `property` WHERE address LIKE '%{$location}%' AND type LIKE '%{$type}%' AND offer LIKE '%{$offer}%' AND bhk LIKE '%{$bhk}%' AND status LIKE '%{$status}%' AND furnished LIKE '%{$furnished}%' AND price BETWEEN $min AND $max ORDER BY date DESC");
    $select_properties->execute();
 
 }else{
-   // $select_properties = $conn->prepare("SELECT * FROM `property` ORDER BY date DESC LIMIT 6");
+   // $select_properties = $db->prepare("SELECT * FROM `property` ORDER BY date DESC LIMIT 6");
    // $select_properties->execute();
 }
 
@@ -151,7 +152,7 @@ if(isset($_POST['h_search'])){
 
    <?php 
       if(isset($_POST['h_search']) or isset($_POST['filter_search'])){
-         echo '<h1 class="heading">search results</h1>';
+         echo '<h1 class="heading">Search Results</h1>';
       }else{
          echo '<h1 class="heading">Listing Details</h1>';
       }
@@ -160,9 +161,9 @@ if(isset($_POST['h_search'])){
    <div class="box-container">
       <?php
          $total_images = 0;
-         if(false){ //$select_properties->rowCount() > 0
+         if(false){ 
             while($fetch_property = $select_properties->fetch(PDO::FETCH_ASSOC)){
-            $select_user = $conn->prepare("SELECT * FROM `users` WHERE id = ?");
+            $select_user = $db->prepare("SELECT * FROM `users` WHERE id = ?");
             $select_user->execute([$fetch_property['user_id']]);
             $fetch_user = $select_user->fetch(PDO::FETCH_ASSOC);
 
@@ -189,8 +190,8 @@ if(isset($_POST['h_search'])){
 
             $total_images = (1 + $image_coutn_02 + $image_coutn_03 + $image_coutn_04 + $image_coutn_05);
 
-            $select_saved = $conn->prepare("SELECT * FROM `saved` WHERE property_id = ? and user_id = ?");
-            $select_saved->execute([$fetch_property['id'], $user_id]);
+            // $select_saved = $db->prepare("SELECT * FROM `saved` WHERE property_id = ? and user_id = ?");
+            // $select_saved->execute([$fetch_property['id'], $user_id]);
 
       ?>
       <form action="" method="POST">

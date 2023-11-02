@@ -6,6 +6,7 @@
       <link rel="stylesheet" href="resources/style.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
       <title>Just Sell</title>
 
       <!-- Favicons -->
@@ -28,7 +29,7 @@
                   <ul>
                      <li><a href="search.php">More Search</a></li>
                      <li><a href="latest_listings.php">Latest Listings</a></li>
-                     <li><a href="search.php">All Listings</a></li>
+                     <li><a href="all_listings.php">All Listings</a></li>
                   </ul>
                </li>
                <li><a href="#">See Offers<i class="fas fa-angle-down"></i></a>

@@ -35,8 +35,10 @@ if ($IsLogIn){
     $query->execute(["id"=> $agentID]);
     
     ?>
-    <div class="home">
-      <section class="center">
+    <section class="services">
+      <h1 class="heading">Properties</h1>
+      <a href="add.php">Add a Property listing</a>
+      <section class="box-container">
         <?php while($data = $query->fetch()) : ?>
         <div class="box">
           <p>Property Number: <?=$data['PropertyID'];?> </p>
@@ -46,9 +48,9 @@ if ($IsLogIn){
           <a href="delete.php?item=<?=$data['PropertyID'];?>">Delete</a>
         </div>
           <? endwhile?>
-          <h3>Add a listing</h3>
       </section>
-      <section class="center">
+      <h1 class="heading">Offers</h1>
+      <section class="box-container">
         <?php
         //fetch all offers
         $sql = "SELECT o.*, p.AgentID FROM `propertyoffers` o JOIN `properties` p ON o.PropertyID = p.PropertyID WHERE AgentID = :id";
@@ -65,7 +67,7 @@ if ($IsLogIn){
         <? endwhile?>
       </section>
 
-    </div>
+    </section>
     <?php
   } else if ($data['Permission'] == 3){
     echo "Welcome to the admin panel";
@@ -84,8 +86,10 @@ if ($IsLogIn){
     $query->execute();
     
     ?>
-    <div class="home">
-      <section class="center">
+    <section class="services">
+      <h1 class="heading">Properties</h1>
+      <a href="add.php">Add a Property listing</a>
+      <section class="box-container">
         <?php while($data = $query->fetch()) : ?>
         <div class="box">
           <p>Property Number: <?=$data['PropertyID'];?> </p>
@@ -95,9 +99,9 @@ if ($IsLogIn){
           <a href="delete.php?item=<?=$data['PropertyID'];?>">Delete</a>
         </div>
           <? endwhile?>
-          <h3><a href="add.php">Add a listing</a></h3>
       </section>
-      <section class="center">
+      <h1 class="heading">Offers</h1>
+      <section class="box-container">
         <?php
         //fetch all offers
         $sql = "SELECT * FROM propertyoffers";
@@ -113,7 +117,8 @@ if ($IsLogIn){
           </div>
         <? endwhile?>
       </section>
-      <section class="center">
+      <h1 class="heading">Users</h1>
+      <section class="box-container">
         <?php
         //fetch all users
         $sql = "SELECT * FROM users";

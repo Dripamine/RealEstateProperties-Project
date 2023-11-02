@@ -105,7 +105,6 @@ if ($data["Permission"] == 1){
       $query = $db->prepare($sql);
       $query->execute();
       $results = $query->fetchall();
-      //print_r($results); 
 
       if (in_array($_POST['AgentID'], $results)){
         $agent = $_POST['AgentID'];
@@ -131,7 +130,7 @@ if ($data["Permission"] == 1){
         "furnished" => $furn,
       ];
 
-      if ($id == ""){//IMPORTANT ADD THE AGENT ID THING.
+      if ($id == ""){
         $sql = "INSERT INTO properties (AgentID, StreetNum, StreetName, City, Province, Postal, Description, Price, Bathrooms, Bedrooms, Floors, size, furnished) 
         VALUES (:AgentID, :StreetNum, :StreetName, :City, :Province, :Postal, :Description, :Price, :Bathrooms, :Bedrooms, :Floors, :size, :furnished);";
       } else {
@@ -218,4 +217,4 @@ if ($data["Permission"] == 1){
   </div>
 <?
 
-include "resources/footer.php" ?>
+include "resources/footer.php"; ?>

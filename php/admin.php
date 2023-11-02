@@ -46,6 +46,7 @@ if ($IsLogIn){
           <p>Price: <?=$data['Price'];?></p>
           <a href="add.php?item=<?=$data['PropertyID'];?>">Edit</a>
           <a href="delete.php?item=<?=$data['PropertyID'];?>">Delete</a>
+          <a href="addImage.php?id=<?=$data['PropertyID'];?>">Add an Image</a>
         </div>
           <? endwhile?>
       </section>
@@ -99,6 +100,7 @@ if ($IsLogIn){
           <p>Price: <?=$data['Price'];?></p>
           <a href="add.php?item=<?=$data['PropertyID'];?>">Edit</a>
           <a href="delete.php?item=<?=$data['PropertyID'];?>">Delete</a>
+          <a href="addImage.php?id=<?=$data['PropertyID'];?>">Add an Image</a>
         </div>
           <? endwhile?>
       </section>

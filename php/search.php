@@ -74,21 +74,6 @@ include "resources/header.php";
                   <option value="1000000">1M</option>
                </select>
             </div>
-            <!-- <div class="box">
-               <p>Status</p>
-               <select name="status" class="input" required>
-                  <option value="ready to move">Ready to move</option>
-                  <option value="under construction">Under construction</option>
-               </select>
-            </div> -->
-            <!-- <div class="box">
-               <p>Furnished</p>
-               <select name="furnished" class="input" required>
-                  <option value="unfurnished">Unfurnished</option>
-                  <option value="furnished">Furnished</option>
-                  <option value="semi-furnished">Semi-furnished</option>
-               </select>
-            </div> -->
          </div>
          <input type="submit" value="search property" name="filter_search" class="btn">
    </form>
@@ -139,9 +124,6 @@ if(isset($_POST['h_search'])){
    $select_properties = $db->prepare("SELECT * FROM `property` WHERE address LIKE '%{$location}%' AND type LIKE '%{$type}%' AND offer LIKE '%{$offer}%' AND bhk LIKE '%{$bhk}%' AND status LIKE '%{$status}%' AND furnished LIKE '%{$furnished}%' AND price BETWEEN $min AND $max ORDER BY date DESC");
    $select_properties->execute();
 
-}else{
-   // $select_properties = $db->prepare("SELECT * FROM `property` ORDER BY date DESC LIMIT 6");
-   // $select_properties->execute();
 }
 
 ?>
@@ -189,9 +171,6 @@ if(isset($_POST['h_search'])){
             }
 
             $total_images = (1 + $image_coutn_02 + $image_coutn_03 + $image_coutn_04 + $image_coutn_05);
-
-            // $select_saved = $db->prepare("SELECT * FROM `saved` WHERE property_id = ? and user_id = ?");
-            // $select_saved->execute([$fetch_property['id'], $user_id]);
 
       ?>
       <form action="" method="POST">
@@ -253,21 +232,8 @@ if(isset($_POST['h_search'])){
 
 
 
-
-
-
-
-
-
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
-
-<!-- custom js file link  -->
-<script src="js/script.js"></script>
-
-<?php //include 'components/message.php'; ?>
 
 <script>
 

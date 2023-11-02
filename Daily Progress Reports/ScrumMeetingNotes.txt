@@ -62,3 +62,6 @@ Tuesday October 31st - Happy Halloween!
 
 Wednesday Novemeber 1st
     Benjamin - Admin/Agent panel; Delete function, Add/edit function
+
+Thursday Novemeber 2nd
+    Benjamin - add/edit properties function

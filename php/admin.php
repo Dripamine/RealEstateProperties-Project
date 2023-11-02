@@ -62,7 +62,9 @@ if ($IsLogIn){
             <p>Offer for Property Number: <?=$data['PropertyID'];?></p>
             <p>Amount: <?=$data['OfferAmount'];?></p>
             <p>Status:<?=$data['OfferStatus'];?></p>
-            <p>Accept / Reject / Delete</p>
+            <a href="modifyOffer.php?item=<?=$data['OfferID'];?>&set=App">Approve</a>
+            <a href="modifyOffer.php?item=<?=$data['OfferID'];?>&set=Rej">Reject</a>
+            <a href="modifyOffer.php?item=<?=$data['OfferID'];?>&set=Del">Delete</a>
           </div>
         <? endwhile?>
       </section>
@@ -113,7 +115,9 @@ if ($IsLogIn){
             <p>Offer for Property Number: <?=$data['PropertyID'];?></p>
             <p>Amount: <?=$data['OfferAmount'];?></p>
             <p>Status:<?=$data['OfferStatus'];?></p>
-            <p>Accept / Reject / Delete</p>
+            <a href="modifyOffer.php?item=<?=$data['OfferID'];?>&set=App">Approve</a>
+            <a href="modifyOffer.php?item=<?=$data['OfferID'];?>&set=Rej">Reject</a>
+            <a href="modifyOffer.php?item=<?=$data['OfferID'];?>&set=Del">Delete</a>
           </div>
         <? endwhile?>
       </section>

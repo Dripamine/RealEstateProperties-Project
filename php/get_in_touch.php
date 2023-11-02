@@ -1,5 +1,5 @@
 <?php
-require "resources/connect.php"; //kvp: can we delete this?
+require "resources/connect.php"; 
 
 include "resources/header.php";
 ?>
@@ -32,15 +32,6 @@ include "resources/header.php";
 <div style="padding-bottom: 100px;">
 
 </div>
-
-</html>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-
-<!-- custom js file link  -->
-<script src="js/script.js"></script>
-
-<?php include 'message.php'; ?>
 
 </body>
 </html>

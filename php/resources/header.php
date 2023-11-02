@@ -21,8 +21,7 @@
    <nav class="navbar nav-2">
       <section class="flex">
          <a href="index.php"><img src="resources/logo.png" height="80" width="220" alt="Home"/></a>
-
-         <!-- <div id="menu-btn" class="fas fa-bars"></div> -->
+      
          <div class="menu">
             <ul>               
                <li><a href="#">Listings<i class="fas fa-angle-down"></i></a>
@@ -32,13 +31,6 @@
                      <li><a href="all_listings.php">All Listings</a></li>
                   </ul>
                </li>
-               <!--<li><a href="#">See Offers<i class="fas fa-angle-down"></i></a>
-                  <ul>
-                     <li><a href="#">Make an Offer</a></li> 
-                     <li><a href="#">Offer Status</a></li>
-                     <li><a href="#">All Offers</a></li>
-                  </ul>
-               </li>-->
                <li><a href="#">Help<i class="fas fa-angle-down"></i></a>
                   <ul>
                      <li><a href="about_us.php">About Us</a></i></li>

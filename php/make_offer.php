@@ -10,34 +10,38 @@ include "resources/header.php";
 </style>
 
 <!-- search filter section starts  -->
-<section class="filters" style="padding-bottom: 70px;">
-   <form action="" method="post" style="width: 700px; margin: 0 auto;">
-      <div id="close-filter"><i class="fas fa-times"></i></div>
-      <h3>Send Offer</h3>
-      <?php
-         $sql_selected_property = $db->prepare("SELECT * FROM `properties` WHERE PropertyID = 1");
-         if ($sql_selected_property->execute()) {
-            $selected_property = $sql_selected_property->fetch(PDO::FETCH_ASSOC);
-         } else {
-            $errorInfo = $sql_selected_property->errorInfo();
-            echo 'Error: ' . $errorInfo[2];
-         }
-      ?>
-      <div class="flex">
-         <div class="box" style="padding: 25px 0 0 25px; display: block;">
-            <p name="lblPropertyid" style="font-weight: bold;">PropertyId: <?= $selected_property['PropertyID'] ?></p>
+
+<div class="home">
+   <section class="filters" style="padding-bottom: 70px;">
+      <form action="" method="post">
+         <div id="close-filter"><i class="fas fa-times"></i></div>
+         <h3>Send Offer</h3>
+         <?php
+            $sql_selected_property = $db->prepare("SELECT * FROM `properties` WHERE PropertyID = 1");
+            if ($sql_selected_property->execute()) {
+               $selected_property = $sql_selected_property->fetch(PDO::FETCH_ASSOC);
+            } else {
+               $errorInfo = $sql_selected_property->errorInfo();
+               echo 'Error: ' . $errorInfo[2];
+            }
+         ?>
+         <div class="flex">
+            <div class="box" style="padding: 25px 0 0 25px; display: block;">
+               <p name="lblPropertyid" style="font-weight: bold;">PropertyId: <?= $selected_property['PropertyID'] ?></p>
+            </div>
+            <div class="box" style="padding: 15px 0 0 25px; display: block;">
+               <p name="lblAskingprice" style="font-weight: bold;">Asking Price: $<?= number_format($selected_property['Price'], 2, '.', ',') ?></p>
+            </div>
+            <div class="box" style="padding: 25px; display: block;">
+               <p style="font-weight: bold;">Your offer</p>
+               <input type="text" name="txtOffer" required placeholder="0.00" class="input" style="width: 200px;">
+            </div>
          </div>
-         <div class="box" style="padding: 15px 0 0 25px; display: block;">
-            <p name="lblAskingprice" style="font-weight: bold;">Asking Price: $<?= number_format($selected_property['Price'], 2, '.', ',') ?></p>
-         </div>
-         <div class="box" style="padding: 25px; display: block;">
-            <p style="font-weight: bold;">Your offer</p>
-            <input type="text" name="txtOffer" required placeholder="0.00" class="input" style="width: 200px;">
-         </div>
-      </div>
-      <input type="submit" value="Submit offer" name="btnSubmitoffer" class="btn" style="width: 400px; margin: 0 auto;" id="submitOfferButton">
-   </form>
-</section>
+         <input type="submit" value="Submit offer" name="btnSubmitoffer" class="btn" style="width: 400px; margin: 0 auto;" id="submitOfferButton">
+      </form>
+   </section>
+</div>
+
 
 <section id="confirmation" class="filters" style="padding-bottom: 200px; text-align: center;">
    <form style="width: 900px; margin: 0 auto;">

@@ -2,7 +2,7 @@
 include "resources/header.php";
 ?>
 
-<!-- about us section starts  -->
+<!-- about us section starts, test Karina -->
 
 <section class="about">
 

@@ -11,10 +11,9 @@
 
     <div class="box">
         <a href="index.php"><span>Home</span></a>
-        <a href="about.php"><span>About</span></a>
+        <a href="about_us.php"><span>About Us</span></a>
         <a href="get_in_touch.php"><span>Contact</span></a>
-        <a href="listings.php"><span>All Listings</span></a>
-        <a href="saved.php"><span>Saved Properties</span></a>
+        <a href="all_listings.php"><span>All Listings</span></a>
     </div>
 
     <div class="box">

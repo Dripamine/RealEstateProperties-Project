@@ -32,13 +32,13 @@
                      <li><a href="all_listings.php">All Listings</a></li>
                   </ul>
                </li>
-               <li><a href="#">See Offers<i class="fas fa-angle-down"></i></a>
+               <!--<li><a href="#">See Offers<i class="fas fa-angle-down"></i></a>
                   <ul>
                      <li><a href="#">Make an Offer</a></li> 
                      <li><a href="#">Offer Status</a></li>
                      <li><a href="#">All Offers</a></li>
                   </ul>
-               </li>
+               </li>-->
                <li><a href="#">Help<i class="fas fa-angle-down"></i></a>
                   <ul>
                      <li><a href="about_us.php">About Us</a></i></li>
@@ -49,11 +49,14 @@
             </ul>
          </div>
 
-         <ul>
-            <li><a href="saved.php">See Offers Status<i class="far fa-heart"></i></a></li>
+         <ul> 
+            <?php if($IsLogIn) : ?>
+            <li><a href="user.php">User Settings<i class="far fa-user"></i></a></li>
+            <?php endif; ?>
             <li><a href="user.php">My Account<i class="fas fa-angle-down"></i></a>
                <ul>
                   <?php if($IsLogIn) : ?>
+                     <li><a href="user.php">User Settings</a></li>
                      <li><a href="resources/logout.php">Logout</a></li>
                   <?php else : ?>
                      <li><a href="login.php">Login Now</a></li>

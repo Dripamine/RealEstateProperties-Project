@@ -160,10 +160,10 @@ if ($data["Permission"] == 1){
       ];
 
       if ($id == ""){
-        $sql = "INSERT INTO properties (AgentID, StreetNum, StreetName, City, Province, Postal, Description, Price, Bathrooms, Bedrooms, Floors, size, furnished, PropertyType, YearOfBuilt, Amenities, sellOption, ContructionStatus) 
+        $sql = "INSERT INTO properties (AgentID, StreetNum, StreetName, City, Province, Postal, Description, Price, Bathrooms, Bedrooms, Floors, size, furnished, PropertyType, YearOfBuilt, Amenities, sellOption, ConstructionStatus) 
         VALUES (:agent, :stNum, :stName, :city, :prov, :postal, :desc, :price, :bath, :bed, :flr, :size, :furn, :propType, :year, :amen, :sale, :stat);";
       } else {
-        $sql = "UPDATE properties SET StreetNum = :stNum, StreetName = :stName, City = :city, Province = :province, Postal = :postal, Description = :desc, Price = :price, Bathrooms = :bath, Bedrooms = :bed, Floors = :flr, Size = :size, Furnished = :furn, PropertyType = :propType, Amenities = :amen, sellOption = :sale, ContructionStatus = :stat  WHERE PropertyID = :id";
+        $sql = "UPDATE properties SET StreetNum = :stNum, StreetName = :stName, City = :city, Province = :province, Postal = :postal, Description = :desc, Price = :price, Bathrooms = :bath, Bedrooms = :bed, Floors = :flr, Size = :size, Furnished = :furn, PropertyType = :propType, YearOfBuilt = :year, Amenities = :amen, sellOption = :sale, ConstructionStatus = :stat  WHERE PropertyID = :id";
         $data['propertyID'] = $id; 
       }
       $query = $db->prepare($sql);

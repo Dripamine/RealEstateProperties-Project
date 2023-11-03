@@ -12,8 +12,6 @@ if (isset($_GET['is_latest_listings_only']) && $_GET['is_latest_listings_only'] 
    $sqlLimit = "";  
    $pageTitle = "All Listings";
 }
-
-
 ?>
 
 <!-- all listings section starts  -->

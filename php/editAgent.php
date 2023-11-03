@@ -94,7 +94,7 @@ include "resources/header.php";
 <div class="home">
     <section class="center">
         <form action="add2.php" method="POST">
-            <h3>Agent Information</h3>
+            <h3>Edit Agent Information</h3>
             <div class="box">
                 <p>First Name: </p>
                 <input class="input" type="text" name="FirstName" value="<?= $fName; ?>" />

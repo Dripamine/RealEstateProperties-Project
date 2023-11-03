@@ -273,7 +273,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Admin Button -->
     <?php if ($user_data['Permission'] == 3) { ?>
-        <button class=inline-btn type="submit" onclick="location.href='admin_panel.php'">Admin Panel</button>
+        <button class=inline-btn type="submit" onclick="location.href='admin.php'">Admin Panel</button>
     <?php } ?>
 
     <!-- Admin Button -->

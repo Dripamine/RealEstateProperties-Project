@@ -22,13 +22,13 @@ if ($IsLogIn) {
 
   }
   if ($data['Permission'] == 2) {
-      // Fetch Agent's FirstName based on the agentID
-  $sql = "SELECT FirstName FROM agents WHERE LoginID = :loginID";
-  $query = $db->prepare($sql);
-  $query->execute(["loginID" => $_SESSION['user_id']]);
-  $agent_data = $query->fetch();
+    // Fetch Agent's FirstName based on the agentID
+    $sql = "SELECT FirstName FROM agents WHERE LoginID = :loginID";
+    $query = $db->prepare($sql);
+    $query->execute(["loginID" => $_SESSION['user_id']]);
+    $agent_data = $query->fetch();
 
-  echo '<h1>Welcome to the Agent Panel, ' . $agent_data['FirstName'] . '!</h1>';
+    echo '<h1>Welcome to the Agent Panel, ' . $agent_data['FirstName'] . '!</h1>';
     //fetch Agent ID
     $sql = "SELECT AgentID FROM agents WHERE LoginID = :id";
     $query = $db->prepare($sql);
@@ -93,14 +93,14 @@ if ($IsLogIn) {
     </section>
     <?php
   } else if ($data['Permission'] == 3) {
-    $adminID = $data['LoginID']; 
+    $adminID = $data['LoginID'];
 
     // Fetch the admin's first name based on the adminID
     $sql = "SELECT FirstName FROM admins WHERE LoginID = :adminID";
     $query = $db->prepare($sql);
     $query->execute(["adminID" => $adminID]);
     $admin_data = $query->fetch();
-  
+
     echo '<h1>Welcome to the Admin Panel, ' . $admin_data['FirstName'] . '!</h1>';
 
     //fetch adminID -wait, i dont need to do this
@@ -120,7 +120,8 @@ if ($IsLogIn) {
     ?>
       <section class="services">
         <h1 class="heading">Properties</h1>
-        <button class="btn" type="submit" style="display: block; margin: 0 auto; width: 30rem;" onclick="location.href='add.php'">Add a Property listing</button>
+        <button class="btn" type="submit" style="display: block; margin: 0 auto; width: 30rem;"
+          onclick="location.href='add.php'">Add a Property listing</button>
         <section class="box-container">
         <?php while ($data = $query->fetch()): ?>
             <div class="box">
@@ -166,7 +167,7 @@ if ($IsLogIn) {
         <? endwhile ?>
         </section>
         <h1 class="heading">Users</h1>
-        <button class="btn" type="submit" style="display: block; margin: 0 auto; width: 30rem;" onclick="location.href='add1.php'">Add User</button>
+        <!-- <button class="btn" type="submit" style="display: block; margin: 0 auto; width: 30rem;" onclick="location.href='add1.php'">Add User</button> -->
         <section class="box-container">
           <?php
           //fetch all users
@@ -183,17 +184,23 @@ if ($IsLogIn) {
               <p>Email:
               <?= $data['Email']; ?>
               </p>
-              <p>Postal:
-              <?= $data['Postal']; ?>
+              <p>Phone:
+              <?= $data['Phone']; ?> 
               </p>
-              <a href="add1.php?user=<?= $data['UserID']; ?>">Edit</a>
-              <p>/ Delete</p>
+              <p>City:
+              <?= $data['City']; ?> 
+              </p>
+              <br>
+              <a href="admin_user_edit.php?user=<?= $data['UserID']; ?>">Edit</a>
+              <a href="deleteUser.php?user=<?= $data['UserID']; ?>">Delete</a>
             </div>
+
         <? endwhile ?>
 
         </section>
         <h1 class="heading">Agents</h1>
-        <button class="btn" type="submit" style="display: block; margin: 0 auto; width: 30rem;" onclick="location.href='add2.php'">Add Agent</button>
+        <button class="btn" type="submit" style="display: block; margin: 0 auto; width: 30rem;"
+          onclick="location.href='addAgent.php'">Add Agent</button>
 
         <section class="box-container">
           <?php
@@ -214,9 +221,8 @@ if ($IsLogIn) {
               <p>Phone:
               <?= $data['Phone']; ?>
               </p>
-              <a href="add2.php?agent=<?= $data['AgentID']; ?>">Edit</a>
-
-              <p>/ Delete</p>
+              <a href="editAgent.php?agent=<?= $data['AgentID']; ?>">Edit</a>
+              <a href="deleteAgent.php?agent=<?= $data['AgentID']; ?>">Delete</a>
             </div>
         <? endwhile ?>
         </section>

@@ -1,5 +1,4 @@
 <?php
-
 require "resources/connect.php";
 
 // Get all login data
@@ -18,7 +17,11 @@ $id = "";
 $fName = "";
 $lName = "";
 $email = "";
-$postal = "";
+$phone = "";
+$streetNum = "";
+$streetName = "";
+$city = "";
+$province = "";
 
 if (array_key_exists('user', $_GET)) {
     $sql = "SELECT * FROM users WHERE UserID = :id";
@@ -34,7 +37,11 @@ if (array_key_exists('user', $_GET)) {
     $fName = $data['FirstName'];
     $lName = $data['LastName'];
     $email = $data['Email'];
-    $postal = $data['Postal'];
+    $phone = $data['Phone'];
+    $streetNum = $data['StreetNum'];
+    $streetName = $data['StreetName'];
+    $city = $data['City'];
+    $province = $data['Province'];
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -48,8 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     else if (!filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL)) $errorMsgs['Email'] = "Invalid email address.";
     else $email = $_POST['Email'];
 
-    if (IsEmpty($_POST, 'Postal')) $postal = NULL;
-    else $postal = $_POST['Postal'];
+    // Add validation and handling for the new fields (Phone, Street Number, Street Name, City, Province)
+    $phone = $_POST['Phone'] ?? "";
+    $streetNum = $_POST['StreetNum'] ?? "";
+    $streetName = $_POST['StreetName'] ?? "";
+    $city = $_POST['City'] ?? "";
+    $province = $_POST['Province'] ?? "";
 
     $id = $_POST['UserID'] ?? "";
 
@@ -58,14 +69,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             "FirstName" => $fName,
             "LastName" => $lName,
             "Email" => $email,
-            "Postal" => $postal,
+            "Phone" => $phone, // Add Phone
+            "StreetNum" => $streetNum, // Add Street Number
+            "StreetName" => $streetName, // Add Street Name
+            "City" => $city, // Add City
+            "Province" => $province, // Add Province
         ];
 
         if (empty($id)) {
-            $sql = "INSERT INTO users (FirstName, LastName, Email, Postal) 
-                    VALUES (:FirstName, :LastName, :Email, :Postal);";
+            $sql = "INSERT INTO users (FirstName, LastName, Email, Phone, StreetNum, StreetName, City, Province) 
+                    VALUES (:FirstName, :LastName, :Email, :Phone, :StreetNum, :StreetName, :City, :Province);";
         } else {
-            $sql = "UPDATE users SET FirstName = :FirstName, LastName = :LastName, Email = :Email, Postal = :Postal WHERE UserID = :UserID";
+            $sql = "UPDATE users SET FirstName = :FirstName, LastName = :LastName, Email = :Email, Phone = :Phone, StreetNum = :StreetNum, StreetName = :StreetName, City = :City, Province = :Province WHERE UserID = :UserID";
             $data['UserID'] = $id;
         }
 
@@ -101,8 +116,24 @@ include "resources/header.php";
             </div>
             <p class="error" style="color: red; text-align: center;"><?= $errorMsgs['Email'] ?? ''; ?></p>
             <div class="box">
-                <p>Postal Code: </p>
-                <input class="input" type="text" name="Postal" value="<?= $postal; ?>" />
+                <p>Phone: </p>
+                <input class="input" type="text" name="Phone" value="<?= $phone; ?>" /> <!-- Add Phone -->
+            </div>
+            <div class="box">
+                <p>Street Number: </p>
+                <input class="input" type="text" name="StreetNum" value="<?= $streetNum; ?>" /> <!-- Add Street Number -->
+            </div>
+            <div class="box">
+                <p>Street Name: </p>
+                <input class="input" type="text" name="StreetName" value="<?= $streetName; ?>" /> <!-- Add Street Name -->
+            </div>
+            <div class="box">
+                <p>City: </p>
+                <input class="input" type="text" name="City" value="<?= $city; ?>" /> <!-- Add City -->
+            </div>
+            <div class="box">
+                <p>Province: </p>
+                <input class="input" type="text" name="Province" value="<?= $province; ?>" /> <!-- Add Province -->
             </div>
             <input type="hidden" name="UserID" value="<?= $id; ?>" />
             <input class="btn" type="submit" value="Submit" />

@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `properties` (
   `YearOfBuilt` tinyint(3) NOT NULL,
   `Amenities` varchar(100) NOT NULL,
   `sellOption` varchar(30) NOT NULL,
-  `Construction Status` varchar(30) NOT NULL
+  `ConstructionStatus` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -278,7 +278,7 @@ INSERT IGNORE INTO `agents` (`AgentID`, `LoginID`, `FirstName`, `LastName`, `Pho
 
 -- Insert 6 records into the properties table
 INSERT IGNORE INTO `properties` 
-(`PropertyID`, `AgentID`, `StreetNum`, `StreetName`, `City`, `Province`, `Postal`, `Description`, `Price`, `Bathrooms`, `Bedrooms`, `Floors`, `size`, `furnished`, `PropertyType`, `YearOfBuilt`, `Amenities`, `sellOption`, `Construction Status`) VALUES
+(`PropertyID`, `AgentID`, `StreetNum`, `StreetName`, `City`, `Province`, `Postal`, `Description`, `Price`, `Bathrooms`, `Bedrooms`, `Floors`, `size`, `furnished`, `PropertyType`, `YearOfBuilt`, `Amenities`, `sellOption`, `ConstructionStatus`) VALUES
 (1, 1, '11', 'Broadway', 'New York', 'NY', 'NY10101', 'Historic apartment in the theater district. A piece of New York history.', 1200000.00, 2, 2, 1, '1234567', 'furnished', 'House', 2020, 'Pool, Sauna, Deck', 'Sale', 'Ready to Move'),
 (2, 1, '9401', 'Union St', 'San Francisco', 'CA', 'CA10101', 'Contemporary penthouse with stunning city views. Ideal for urban living.', 1800000.00, 3, 2, 2, '1234567', 'furnished', 'Apartment', 2021, 'Pool, Sauna', 'Resale', 'Ready to Move'),
 (3, 1, '604601', 'River Rd', 'Chicago', 'IL', 'IL10101', 'Cozy townhouse near the Chicago River. Perfect for a small family.', 500000.00, 1, 2, 2, '1234567', 'furnished', 'House', 2019, 'Sauna, Deck', 'Leasing', 'Ready to Move'),

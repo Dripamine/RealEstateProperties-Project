@@ -44,24 +44,34 @@ Tuesday October 24th
 Wednesday October 25th -
     Benjamin - Password hashing, and username validation finished. created login page, css tweaks
     Karina - Listing page created but not finalized
+    Amine - Started the User profile dashboard
 
 Thursday October 26th -
     Benjamin - Continued login page work. Almost finished. TDB Cookies. Added functions.php
     Karina - Working listing page, entering db information to be able to test the function on the listing page.
+    Amine - is working on the User profile dashboard.
 
 Friday October 27th -
     Benjamin - Cleaning; organizing, reduce redundancies, add comments (i always forget those), minor fixes
     Karina - after test: fixed link home on footer, fixed link contact us on footer, fixed link all listings us on footer, fixed several links on our header.
+    Amine - is working on the User profile dashboard.
 
 Saturday October 28th -
     Benjamin - 
     Karina - create about us page (nothing fancy), create saved properties page (user needs to log in first)
+    Amine - pushed an initial version of the user profile dashboard
+
+Monday October 30th -
+    Amine - Setting up the Admin dashboard button.
 
 Tuesday October 31st - Happy Halloween!
     Benjamin - Started Admin / Agent Panel, 000webhost setup.
+     Amine - pushed the Admin dashboard button.
 
 Wednesday Novemeber 1st
     Benjamin - Admin/Agent panel; Delete function, Add/edit function
+    Amine - moved the error messages in the login box and made them red as well.
 
 Thursday Novemeber 2nd
     Benjamin - add/edit properties function
+    Amine - is working the users and agent sections of the admin panel. Also started the project report.

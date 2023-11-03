@@ -3,10 +3,12 @@ require "resources/connect.php";
 include "resources/header.php";
 
 // Latest listings limited to 6. If we want to change the limit of the number of the houses, we just need to change from 6 to another number.
-if (isset($_GET['is_latest_listings_only']) && $_GET['is_latest_listings_only'] == '6') {
-   $sqlLimit = "LIMIT 2"; 
+if (isset($_GET['is_latest_listings_only']) && $_GET['is_latest_listings_only'] == '1') {
+   $sqlLimit = "LIMIT 3";
+   $pageTitle = "Latest Listings";
 } else {
    $sqlLimit = "";  
+   $pageTitle = "All Listings";
 }
 
 
@@ -16,7 +18,7 @@ if (isset($_GET['is_latest_listings_only']) && $_GET['is_latest_listings_only'] 
 
 <section class="listings">
 
-   <h1 class="heading">All Listings</h1>
+   <h1 class="heading"><?php echo($pageTitle) ?></h1>
 
    <div class="box-container">
       <?php
@@ -47,7 +49,6 @@ if (isset($_GET['is_latest_listings_only']) && $_GET['is_latest_listings_only'] 
             <p class="location"><i class="fas fa-map-marker-alt"></i><span><?= $fetch_property['City']; ?></span></p>
             <div class="flex">
                <p><i class="fas fa-house"></i><span><?= $fetch_property['PropertyType']; ?></span></p>
-               <!--<p><i class="fas fa-tag"></i><span><?= $fetch_property['YearOfBuilt']; ?></span></p> -->
                <p><i class="fas fa-bed"></i><span><?= $fetch_property['Bedrooms']; ?></span></p>
                <p><i class="fas fa-trowel"></i><span><?= $fetch_property['Construction Status']; ?></span></p>
                <p><i class="fas fa-couch"></i><span><?= $fetch_property['furnished']; ?></span></p>

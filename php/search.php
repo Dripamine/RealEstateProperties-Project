@@ -139,7 +139,7 @@
             <div class="flex">
                <p><i class="fas fa-house"></i><span><?= $fetch_property['PropertyType']; ?></span></p>
                <p><i class="fas fa-bed"></i><span><?= $fetch_property['Bedrooms']; ?></span></p>
-               <p><i class="fas fa-trowel"></i><span><?= $fetch_property['Construction Status']; ?></span></p>
+               <p><i class="fas fa-trowel"></i><span><?= $fetch_property['ConstructionStatus']; ?></span></p>
                <p><i class="fas fa-couch"></i><span><?php
                   if ($fetch_property['furnished'] == 1) {
                         echo "furnished";

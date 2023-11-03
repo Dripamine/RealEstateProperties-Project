@@ -22,6 +22,7 @@ $image = "";
 
 if (array_key_exists('id', $_GET)){
   $id = $_GET['id'];
+
 }
 
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -38,22 +39,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     $query = $db->prepare($sql);
     $query->execute();
     $results = $query->fetchall();
-
-    print_r($_POST['PropertyID']);
-    print_r($results);
     
-    if (in_array($_POST['PropertyID'], $results)){
+    if (in_array($_POST['PropertyID'], array_column($results, 'PropertyID'))){
       $id = $_POST['PropertyID'];
     } else {
       $errorMsgs['PropertyID'] = "Property not found.";
     }
   }
 
-  if ($errorMsgs == ""){
+  if (empty($errorMsgs)){
     
-    if ($_FILES['image']['error'] == 0){
-      $source = $_FILES['image']['name'];
-      $desto = "images/PropertiesImages/" . $source;
+    if ($_FILES['ImagePath']['error'] == 0){
+      $source = $_FILES['ImagePath']['tmp_name'];
+      $desto = "images/PropertiesImages/" . $_FILES['ImagePath']['name'];
 
       if (move_uploaded_file($source, $desto)){
         $image = $desto;
@@ -72,8 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
       "ImagePath" => $image,
     ];
 
-    $sql = "INSERT INTO portfolio (PropertyID, ImagePath, ImageFileName, Description) VALUES (:PropertyID, :ImagePath, :ImageFileName, :Description);";
-    $query = $db-prepare($sql);
+    $sql = "INSERT INTO image (PropertyID, ImagePath, ImageFileName, Description) VALUES (:PropertyID, :ImagePath, :ImageFileName, :Description);";
+    $query = $db->prepare($sql);
     $query->execute($data);
 
     //image was added? return to admin? or return to addImage?
@@ -84,7 +82,7 @@ include "resources/header.php"; ?>
 
 <div class="home">
   <section class="center">
-    <form action="addImage.php" method="POST">
+    <form action="addImage.php" method="POST" enctype="multipart/form-data">
       <h3>Attach Image to Property</h3>  
       <div class="box">
         <p>Property ID: </p>

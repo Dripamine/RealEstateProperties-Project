@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     print_r($_POST['PropertyID']);
     print_r($results);
     
-    if (in_array($_POST['PropertyID'], $results)){
+    if (in_array($_POST['PropertyID'], array_column($results, 'PropertyID'))){
       $id = $_POST['PropertyID'];
     } else {
       $errorMsgs['PropertyID'] = "Property not found.";

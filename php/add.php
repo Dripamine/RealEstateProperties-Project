@@ -106,7 +106,7 @@ if ($data["Permission"] == 1){
       $query->execute();
       $results = $query->fetchall();
 
-      if (in_array($_POST['AgentID'], $results)){
+      if (in_array($_POST['AgentID'], array_column($results, 'AgentID'))){
         $agent = $_POST['AgentID'];
       } else {
         $errorMsgs['AgentID'] = "Agent not found.";

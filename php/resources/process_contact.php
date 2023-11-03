@@ -27,7 +27,7 @@ if (isset($_POST['contact_submit'])) {
 
         echo '<script>alert("Message could not be sent. Please try again later.");</script>';
 
-        header('Refresh: 1; URL=/index.php');
+        header('location: ../index.php');
 
         exit;
     }

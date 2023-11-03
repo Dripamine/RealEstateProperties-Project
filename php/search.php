@@ -133,14 +133,20 @@
             </div>
          </div>
          <div class="box">
-            <div class="price"><i class="fas fa-dollar-sign"></i><span><?= $fetch_property['Price']; ?></span></div>
+            <div class="price"><i class="fas fa-dollar-sign"></i><span><?= number_format($fetch_property['Price'], 2, '.', ',') ?></span></div>
             <h3 class="name"><?= $fetch_property['PropertyType']; ?></h3>
             <p class="location"><i class="fas fa-map-marker-alt"></i><span><?= $fetch_property['City']; ?></span></p>
             <div class="flex">
                <p><i class="fas fa-house"></i><span><?= $fetch_property['PropertyType']; ?></span></p>
                <p><i class="fas fa-bed"></i><span><?= $fetch_property['Bedrooms']; ?></span></p>
                <p><i class="fas fa-trowel"></i><span><?= $fetch_property['ConstructionStatus']; ?></span></p>
-               <p><i class="fas fa-couch"></i><span><?= $fetch_property['furnished']; ?></span></p>
+               <p><i class="fas fa-couch"></i><span><?php
+                  if ($fetch_property['furnished'] == 1) {
+                        echo "furnished";
+                  } else {
+                        echo "not furnished";
+                  }
+               ?></span></p>
                <p><i class="fas fa-maximize"></i><span><?= $fetch_property['size']; ?>sqft</span></p>
             </div>
             <div class="flex-btn">

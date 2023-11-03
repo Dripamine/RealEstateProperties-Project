@@ -46,6 +46,7 @@ if ($IsLogIn) {
       <h1 class="heading">Properties</h1>
       <a href="add.php">Add a Property listing</a>
       <section class="box-container">
+
         <?php while ($data = $query->fetch()): ?>
           <div class="box">
             <p>Property Number:
@@ -63,6 +64,7 @@ if ($IsLogIn) {
             <a href="delete.php?item=<?= $data['PropertyID']; ?>">Delete</a>
           </div>
         <? endwhile ?>
+
       </section>
       <h1 class="heading">Offers</h1>
       <section class="box-container">
@@ -116,6 +118,8 @@ if ($IsLogIn) {
     $sql = "SELECT * FROM properties";
     $query = $db->prepare($sql);
     $query->execute();
+
+
 
     ?>
       <section class="services">

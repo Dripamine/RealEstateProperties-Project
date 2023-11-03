@@ -1,11 +1,15 @@
 <?php
-require "resources/connect.php";
-include "resources/header.php";
-?>
+   require "resources/connect.php";   
+   include "resources/header.php";
+   
+   //verify if the user is logged in to send the offer
+   $IsLogIn = $_SESSION['login'] ?? false;
 
-<?php
-//verify if the user is logged in to send the offer
-
+   if (isset($_GET['get_id'])) {
+      $propertyID = $_GET['get_id'];
+   } else {
+      $propertyID = 0;
+   }  
 ?>
 
 
@@ -23,7 +27,7 @@ include "resources/header.php";
          <div class="box">
             <h3>Send Offer</h3>
             <?php
-               $sql_selected_property = $db->prepare("SELECT * FROM `properties` WHERE PropertyID = 1");
+               $sql_selected_property = $db->prepare("SELECT * FROM `properties` WHERE PropertyID = $propertyID");
                if ($sql_selected_property->execute()) {
                   $selected_property = $sql_selected_property->fetch(PDO::FETCH_ASSOC);
                } else {
@@ -50,53 +54,36 @@ include "resources/header.php";
       </form>
    </section>
 </div>
-<!-- send offer section ends  -->
 
 
-<!-- confirmation message - I would like to change it to show up as a pop-up -->
-<section id="confirmation" class="filters" style="padding-bottom: 200px; text-align: center;">
-   <form style="width: 900px; margin: 0 auto;">
-      <div class="flex">
-         <div class="box" style="padding: 25px 0 0 25px; display: inline-block;">
-            <p name="lblmessage1" style="font-weight: bold; font-size: 25px"></p>
-         </div>
-      </div>
+<!-- Modal HTML structure -->
+<div id="confirmationModal" class="modal">
+  <div class="modal-content">
+    <p name="lblmessage1" style="font-weight: bold; font-size: 25px; padding-top:20px;"></p>
+    <p name="lblmessage2" style="font-weight: bold; font-size: 25px; padding: 25px 0 45px 0;">Would you like to continue?</p>
+    <button id="yesButton" class="btn" style="width: 150px; display: inline-block;">Yes</button>
+    <button id="noButton" class="btn" style="width: 150px; display: inline-block;">No</button>
+  </div>
+</div>
 
-      <div class="flex">
-         <div class="box" style="padding: 25px 0 15px 25px; display: inline-block;">
-            <p name="lblmessage2" style="font-weight: bold; font-size: 25px">Would you like to continue?</p>
-         </div>
-      </div>
-
-      <div style="align-items: center; padding-top: 25px">
-         <input type="button" value="Yes" class="btn" style="width: 150px; display: inline-block;" id="yesButton">
-         <input type="button" value="No" class="btn" style="width: 150px; display: inline-block;" id="noButton">
-      </div>
-   </form>
-</section>
 </body>
 </html>
 
 
 <!-- JavaScript to handle the form submission and display the confirmation section -->
 <script>
-   document.addEventListener("DOMContentLoaded", function () {
-      var confirmationSection = document.getElementById("confirmation");
-      var flexSection = document.querySelector('.flex');
-
-      //alert("style display = " confirmationSection.style.display);
+  document.addEventListener("DOMContentLoaded", function () {
+    var confirmationModal = document.getElementById("confirmationModal");
+    
+    // When the "Submit Offer" button is clicked
+    document.querySelector("#submitOfferButton").addEventListener("click", function (e) {
+      e.preventDefault();
       
-      // When the "Submit Offer" button is clicked
-      document.querySelector("#submitOfferButton").addEventListener("click", function (e) {
-         e.preventDefault();
-         // Show the confirmation section
-         confirmationSection.style.display = 'block';
+      // Display the modal
+      confirmationModal.style.display = 'flex'; // Show the modal using 'flex' display
 
-         console.log(confirmationSection);
-         console.log(document.querySelector("#submitOfferButton"));
-
-         // Set the message and button actions
-         var selectedPropertyPrice = <?= $selected_property['Price'] ?>; // Set the selected property price
+      // Set the message and button actions
+      var selectedPropertyPrice = <?= $selected_property['Price'] ?>; // Set the selected property price
          var txtOfferValue = parseFloat(document.querySelector("input[name='txtOffer']").value);
 
          if (!isNaN(txtOfferValue)) {
@@ -108,27 +95,46 @@ include "resources/header.php";
             } else {
                document.querySelector("p[name='lblmessage1']").textContent = "Your offer matches the asking price.";
             }
-            //document.querySelector("p[name='lblmessage2']").textContent = "Would you like to continue?";
          } else {
             document.querySelector("p[name='lblmessage1']").textContent = "Please enter a valid numeric offer.";
             document.querySelector("p[name='lblmessage2']").textContent = "";
          }
-      });
+    });
 
-      document.getElementById("yesButton").addEventListener("click", function () {
-         // Handle "Yes" button action
-         alert("You clicked Yes. Continue your action here.");
-         // Hide the confirmation section
-         confirmationSection.style.display = 'none';
-      });
+    // When the "Yes" button in the modal is clicked
+    document.getElementById("yesButton").addEventListener("click", function () {
+      // Send an AJAX request to insert the data into the database
+      var propertyID = <?= $propertyID ?>;
+      var txtOfferValue = parseFloat(document.querySelector("input[name='txtOffer']").value);
 
-      document.getElementById("noButton").addEventListener("click", function () {
-         // Handle "No" button action
-         alert("You clicked No. Cancel your action here.");
-         // Hide the confirmation section
-         confirmationSection.style.display = 'none';
-      });
-   });
+      if (!isNaN(txtOfferValue)) {
+        // Make an AJAX request
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "insert_offer.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+              alert("Offer submitted successfully.");
+            } else {
+              alert("Failed to submit the offer. Please try again.");
+            }
+            // Hide the modal
+            confirmationModal.style.display = 'none';
+          }
+        };
+        xhr.send("propertyID=" + propertyID + "&offerAmount=" + txtOfferValue);
+      }
+    });
+
+    document.getElementById("noButton").addEventListener("click", function () {
+      // Handle "No" button action
+      alert("You clicked No. Cancel your action here.");
+      // Hide the modal
+      confirmationModal.style.display = 'none';
+    });
+  });
 </script>
+
 
 <?php include "resources/footer.php" ?>

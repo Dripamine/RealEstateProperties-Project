@@ -27,6 +27,11 @@ if ($data["Permission"] == 1){
   $flr = "";
   $size = "";
   $furn = "";
+  $propType = "";
+  $year = "";
+  $amen = "";
+  $sale = "";
+  $stat = "";
 
   if (array_key_exists('item', $_GET)){
     $sql = "SELECT * FROM properties where propertyID = :id";
@@ -53,6 +58,11 @@ if ($data["Permission"] == 1){
     $flr = $data['Floors'];
     $size = $data['size'];
     $furn = $data['furnished'];
+    $propType = $data['PropertyType'];
+    $year = $data['YearOfBuilt'];
+    $amen = $data['Amenities'];
+    $sale = $data['sellOption'];
+    $stat = $data['Construction_Status'];
   }
 
   if ($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -83,19 +93,34 @@ if ($data["Permission"] == 1){
       $price = $_POST['Price'];
     }
 
-    if (IsEmpty($_POST, 'Bathrooms')) $bath = 1;
+    if (IsEmpty($_POST, 'Bathrooms') || $_POST['Bathrooms'] <= 0) $bath = 1;
     else $bath = $_POST['Bathrooms'];
 
-    if (IsEmpty($_POST, 'Bedrooms')) $bed = 1;
+    if (IsEmpty($_POST, 'Bedrooms') || $_POST['Bedrooms'] <= 0) $bed = 1;
     else $bed = $_POST['Bedrooms'];
 
-    if (IsEmpty($_POST, 'Floors')) $flr = 1;
+    if (IsEmpty($_POST, 'Floors') || $_POST['Floors'] <= 0) $flr = 1;
     else $flr = $_POST['Floors'];
 
-    if (IsEmpty($_POST, 'size')) $size = NULL;
+    if (IsEmpty($_POST, 'size') || $_POST['size'] <= 0) $size = NULL;
     else $size = $_POST['size'];
     
     $furn = $_POST['furnished'] ?? "0";
+
+    $propType = $_POST['PropertyType'];
+
+    if ($_POST['YearOfBuilt'] > 2025 || $_POST['YearOfBuilt'] < 1800 || IsEmpty($_POST, 'YearOfBuilt')) $year = 2020;
+    else $year = $_POST['YearOfBuilt'];
+
+    if (IsEmpty($_POST, 'Amenities')) $amen = "N/A";
+    else $amen = $_POST['Amenities'];
+    
+    $sale = $_POST['sellOption'];
+
+    print_r($_POST);
+
+    $stat = $_POST['Construction_Status'];
+
     $id = $_POST['propertyID'] ?? "";
 
     if (IsEmpty($_POST, 'AgentID')){
@@ -105,9 +130,8 @@ if ($data["Permission"] == 1){
       $query = $db->prepare($sql);
       $query->execute();
       $results = $query->fetchall();
-      //print_r($results); 
 
-      if (in_array($_POST['AgentID'], $results)){
+      if (in_array($_POST['AgentID'], array_column($results, 'AgentID'))){
         $agent = $_POST['AgentID'];
       } else {
         $errorMsgs['AgentID'] = "Agent not found.";
@@ -129,13 +153,18 @@ if ($data["Permission"] == 1){
         "Floors" => $flr,
         "size" => $size,
         "furnished" => $furn,
+        "PropertyType" => $propType,
+        "YearOfBuilt" => $year,
+        "Amenities" => $amen,
+        "sellOption" => $sale,
+        "Construction Status" => $stat,
       ];
 
-      if ($id == ""){//IMPORTANT ADD THE AGENT ID THING.
-        $sql = "INSERT INTO properties (AgentID, StreetNum, StreetName, City, Province, Postal, Description, Price, Bathrooms, Bedrooms, Floors, size, furnished) 
-        VALUES (:AgentID, :StreetNum, :StreetName, :City, :Province, :Postal, :Description, :Price, :Bathrooms, :Bedrooms, :Floors, :size, :furnished);";
+      if ($id == ""){
+        $sql = "INSERT INTO properties (AgentID, StreetNum, StreetName, City, Province, Postal, Description, Price, Bathrooms, Bedrooms, Floors, size, furnished, PropertyType, YearOfBuilt, Amenities, sellOption, Contruction Status) 
+        VALUES (:agent, :stNum, :stName, :city, :prov, :postal, :desc, :price, :bath, :bed, :flr, :size, :furn, :propType, :year, :amen, :sale, :stat);";
       } else {
-        $sql = "UPDATE properties SET StreetNum = :stNum, StreetName = :stName, City = :city, Province = :province, Postal = :postal, Description = :desc, Price = :price, Bathrooms = :bath, Bedrooms = :bed, Floors = :floors, Size = :size, Furnished = :furn WHERE PropertyID = :id";
+        $sql = "UPDATE properties SET StreetNum = :stNum, StreetName = :stName, City = :city, Province = :province, Postal = :postal, Description = :desc, Price = :price, Bathrooms = :bath, Bedrooms = :bed, Floors = :flr, Size = :size, Furnished = :furn, PropertyType = :propType, Amenities = :amen, sellOption = :sale, Contruction Status = :stat  WHERE PropertyID = :id";
         $data['propertyID'] = $id; 
       }
       $query = $db->prepare($sql);
@@ -212,10 +241,43 @@ if ($data["Permission"] == 1){
         <p>Furnished: </p>
         <input class="input" type="checkbox" name="Furnished" value="<?=$furn; ?>"/>
       </div>
+      <div class="box">
+        <p>Property Type: </p>
+        <select class="input" name="PropertyType">
+          <option value="Apartment">Apartment</option>
+          <option value="House">House</option>
+          <option value="Duplex or Triplex">Duplex or Triplex</option>
+          <option value="Condo">Condo</option>
+          <option value="Comercial Building">Comercial Building</option>
+        </select>
+      </div>
+      <div class="box">
+        <p>Year built: </p>
+        <input class="input" type="Number" name="YearOfBuilt" value="<?=$year; ?>"/>
+      </div>
+      <div class="box">
+        <p>Amenities: </p>
+        <input class="input" type="text" name="Amenitites" value="<?=$amen; ?>"/>
+      </div>
+      <div class="box">
+        <p>Offer Type: </p>
+        <select class="input" name="sellOption">
+          <option value="Sale">Sale</option>
+          <option value="Resale">Resale</option>
+          <option value="Leasing">Leasing</option>
+        </select>
+      </div>
+      <div class="box">
+        <p>Construction Status: </p>
+        <select class="input" name="Construction_Status">
+          <option value="Ready to Move">Ready to Move</option>
+          <option value="Under Construction">Under Construction</option>
+        </select>
+      </div>
       <input class="btn" type="submit" value="Submit" />
     </form>
   </section>
   </div>
 <?
 
-include "resources/footer.php" ?>
+include "resources/footer.php"; ?>

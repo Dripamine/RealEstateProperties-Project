@@ -69,11 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             "FirstName" => $fName,
             "LastName" => $lName,
             "Email" => $email,
-            "Phone" => $phone, // Add Phone
-            "StreetNum" => $streetNum, // Add Street Number
-            "StreetName" => $streetName, // Add Street Name
-            "City" => $city, // Add City
-            "Province" => $province, // Add Province
+            "Phone" => $phone,
+            "StreetNum" => $streetNum,
+            "StreetName" => $streetName,
+            "City" => $city,
+            "Province" => $province,
         ];
 
         if (empty($id)) {
@@ -98,7 +98,7 @@ include "resources/header.php";
 
 <div class="home">
     <section class="center">
-        <form action="add1.php" method="POST">
+        <form action="admin_user_edit.php" method="POST">
             <h3>User Information</h3>
             <div class="box">
                 <p>First Name: </p>
@@ -117,23 +117,23 @@ include "resources/header.php";
             <p class="error" style="color: red; text-align: center;"><?= $errorMsgs['Email'] ?? ''; ?></p>
             <div class="box">
                 <p>Phone: </p>
-                <input class="input" type="text" name="Phone" value="<?= $phone; ?>" /> <!-- Add Phone -->
+                <input class="input" type="text" name="Phone" value="<?= $phone; ?>" /> 
             </div>
             <div class="box">
                 <p>Street Number: </p>
-                <input class="input" type="text" name="StreetNum" value="<?= $streetNum; ?>" /> <!-- Add Street Number -->
+                <input class="input" type="text" name="StreetNum" value="<?= $streetNum; ?>" /> 
             </div>
             <div class="box">
                 <p>Street Name: </p>
-                <input class="input" type="text" name="StreetName" value="<?= $streetName; ?>" /> <!-- Add Street Name -->
+                <input class="input" type="text" name="StreetName" value="<?= $streetName; ?>" /> 
             </div>
             <div class="box">
                 <p>City: </p>
-                <input class="input" type="text" name="City" value="<?= $city; ?>" /> <!-- Add City -->
+                <input class="input" type="text" name="City" value="<?= $city; ?>" /> 
             </div>
             <div class="box">
                 <p>Province: </p>
-                <input class="input" type="text" name="Province" value="<?= $province; ?>" /> <!-- Add Province -->
+                <input class="input" type="text" name="Province" value="<?= $province; ?>" /> 
             </div>
             <input type="hidden" name="UserID" value="<?= $id; ?>" />
             <input class="btn" type="submit" value="Submit" />

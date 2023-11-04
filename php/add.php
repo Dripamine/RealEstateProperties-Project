@@ -62,7 +62,7 @@ if ($data["Permission"] == 1){
     $year = $data['YearOfBuilt'];
     $amen = $data['Amenities'];
     $sale = $data['sellOption'];
-    $stat = $data['Construction_Status'];
+    $stat = $data['ConstructionStatus'];
   }
 
   if ($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -117,9 +117,7 @@ if ($data["Permission"] == 1){
     
     $sale = $_POST['sellOption'];
 
-    print_r($_POST);
-
-    $stat = $_POST['Construction_Status'];
+    $stat = $_POST['ConstructionStatus'];
 
     $id = $_POST['propertyID'] ?? "";
 
@@ -137,34 +135,35 @@ if ($data["Permission"] == 1){
         $errorMsgs['AgentID'] = "Agent not found.";
       }
     }
-  
-    if ($errorMsgs == ""){
+    
+
+    if (empty($errorMsgs)){
       $data = [
-        "AgentID" => $agent,
-        "StreetNum" => $stNum,
-        "StreetName" => $stName,
-        "City" => $city,
-        "Province" => $prov,
-        "Postal" => $postal,
-        "Description" => $desc,
-        "Price" => $price,
-        "Bathrooms" => $bath,
-        "Bedrooms" => $bed,
-        "Floors" => $flr,
+        "agent" => $agent,
+        "stNum" => $stNum,
+        "stName" => $stName,
+        "city" => $city,
+        "prov" => $prov,
+        "postal" => $postal,
+        "desc" => $desc,
+        "price" => $price,
+        "bath" => $bath,
+        "bed" => $bed,
+        "flr" => $flr,
         "size" => $size,
-        "furnished" => $furn,
-        "PropertyType" => $propType,
-        "YearOfBuilt" => $year,
-        "Amenities" => $amen,
-        "sellOption" => $sale,
-        "Construction Status" => $stat,
+        "furn" => $furn,
+        "propType" => $propType,
+        "year" => $year,
+        "amen" => $amen,
+        "sale" => $sale,
+        "stat" => $stat,
       ];
 
       if ($id == ""){
-        $sql = "INSERT INTO properties (AgentID, StreetNum, StreetName, City, Province, Postal, Description, Price, Bathrooms, Bedrooms, Floors, size, furnished, PropertyType, YearOfBuilt, Amenities, sellOption, Contruction Status) 
+        $sql = "INSERT INTO properties (AgentID, StreetNum, StreetName, City, Province, Postal, Description, Price, Bathrooms, Bedrooms, Floors, size, furnished, PropertyType, YearOfBuilt, Amenities, sellOption, ConstructionStatus) 
         VALUES (:agent, :stNum, :stName, :city, :prov, :postal, :desc, :price, :bath, :bed, :flr, :size, :furn, :propType, :year, :amen, :sale, :stat);";
       } else {
-        $sql = "UPDATE properties SET StreetNum = :stNum, StreetName = :stName, City = :city, Province = :province, Postal = :postal, Description = :desc, Price = :price, Bathrooms = :bath, Bedrooms = :bed, Floors = :flr, Size = :size, Furnished = :furn, PropertyType = :propType, Amenities = :amen, sellOption = :sale, Contruction Status = :stat  WHERE PropertyID = :id";
+        $sql = "UPDATE properties SET StreetNum = :stNum, StreetName = :stName, City = :city, Province = :province, Postal = :postal, Description = :desc, Price = :price, Bathrooms = :bath, Bedrooms = :bed, Floors = :flr, Size = :size, Furnished = :furn, PropertyType = :propType, YearOfBuilt = :year, Amenities = :amen, sellOption = :sale, ConstructionStatus = :stat  WHERE PropertyID = :id";
         $data['propertyID'] = $id; 
       }
       $query = $db->prepare($sql);
@@ -269,7 +268,7 @@ if ($data["Permission"] == 1){
       </div>
       <div class="box">
         <p>Construction Status: </p>
-        <select class="input" name="Construction_Status">
+        <select class="input" name="ConstructionStatus">
           <option value="Ready to Move">Ready to Move</option>
           <option value="Under Construction">Under Construction</option>
         </select>

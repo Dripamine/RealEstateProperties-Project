@@ -83,10 +83,10 @@ CREATE TABLE IF NOT EXISTS `properties` (
   `size` float DEFAULT NULL,
   `furnished` tinyint(1) NOT NULL DEFAULT '0',
   `PropertyType` varchar(30) NOT NULL DEFAULT 'House',
-  `YearOfBuilt` tinyint(3) NOT NULL,
+  `YearOfBuilt` smallint(5) UNSIGNED NOT NULL,
   `Amenities` varchar(100) NOT NULL,
   `sellOption` varchar(30) NOT NULL,
-  `Construction Status` varchar(30) NOT NULL
+  `ConstructionStatus` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

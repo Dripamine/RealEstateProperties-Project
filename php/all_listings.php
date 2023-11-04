@@ -6,19 +6,20 @@ include "resources/header.php";
 if (isset($_GET['is_latest_listings_only']) && $_GET['is_latest_listings_only'] == '1') {
    $sqlLimit = "LIMIT 3";
    $pageTitle = "Latest Listings";
+   $pageDescription = "Please see here Just Sell latest listing:";
+
 } else {
    $sqlLimit = "";  
    $pageTitle = "All Listings";
 }
-
-
 ?>
 
 <!-- all listings section starts  -->
 
 <section class="listings">
 
-   <h1 class="heading"><?php echo($pageTitle) ?></h1>
+   <h1 class="heading"><?php echo($pageTitle)?></h1>
+   <p class="heading"><?php echo($pageDescription) ?></p>
 
    <div class="box-container">
       <?php
@@ -44,13 +45,13 @@ if (isset($_GET['is_latest_listings_only']) && $_GET['is_latest_listings_only'] 
             </div>
          </div>
          <div class="box">
-            <div class="price"><i class="fas fa-dollar-sign"></i><span><?= $fetch_property['Price']; ?></span></div>
+            <div class="price"><i class="fas fa-dollar-sign"></i><span><?= number_format($fetch_property['Price'], 2, '.', ',') ?></span></div>  
             <h3 class="name"><?= $fetch_property['PropertyType']; ?></h3>
             <p class="location"><i class="fas fa-map-marker-alt"></i><span><?= $fetch_property['City']; ?></span></p>
             <div class="flex">
                <p><i class="fas fa-house"></i><span><?= $fetch_property['PropertyType']; ?></span></p>
                <p><i class="fas fa-bed"></i><span><?= $fetch_property['Bedrooms']; ?></span></p>
-               <p><i class="fas fa-trowel"></i><span><?= $fetch_property['Construction Status']; ?></span></p>
+               <p><i class="fas fa-trowel"></i><span><?= $fetch_property['ConstructionStatus']; ?></span></p>
                <p><i class="fas fa-couch"></i><span><?= $fetch_property['furnished']; ?></span></p>
                <p><i class="fas fa-maximize"></i><span><?= $fetch_property['size']; ?>sqft</span></p>
             </div>

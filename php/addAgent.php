@@ -48,7 +48,7 @@ include "resources/header.php";
 <div class="home">
     <section class="center">
 
-        <form method="post" action="add2.php">
+        <form method="post" action="addAgent.php">
             <h3>Add User as Agent</h3>
             <div style="display: flex; justify-content: center; border: 1px solid #000; padding: 20px;">
                 <label for="user_id">Select a User:</label>

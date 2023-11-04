@@ -8,8 +8,8 @@ $query = $db->prepare($sql);
 $query->execute(["id" => $_SESSION['user_id']]);
 $data = $query->fetch();
 
-if ($data["Permission"] == 1) {
-    echo "How did you get in here? Bad user. GO AWAY.";
+if ($data["Permission"] != 3) {
+    echo "You are unauthorized to access this page.";
     die();
 }
 

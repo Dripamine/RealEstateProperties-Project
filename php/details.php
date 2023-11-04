@@ -74,7 +74,7 @@
                <p><i>Built in :</i><span><?= date('Y') - $fetch_property['YearOfBuilt']; ?></span></p>
                <p><i>Total Floors :</i><span><?= $fetch_property['Floors']; ?></span></p>
                <p><i>Furnished :</i><span><?= $fetch_property['furnished']; ?></span></p>
-               <p><i>Loan :</i><span><span class="fas fa-dollar-sign"></span><?= number_format($fetch_property['Price'] * 0.90, 2); ?></span></p> <!-- Assuming the loan is the amount after the depoisit amount(10%) -->
+               <p><i>Loan :</i><span><span class="fas fa-dollar-sign" style="margin-right: .5rem;"></span><?= number_format($fetch_property['Price'] * 0.90, 2); ?></span></p> <!-- Assuming the loan is the amount after the depoisit amount(10%) -->
             </div>
          </div>
          <h3 class="title">Amenities</h3>

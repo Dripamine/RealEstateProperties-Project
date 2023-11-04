@@ -84,7 +84,7 @@
 <!-- Search Listing section starts -->
 <section class="listings">   
    <?php 
-      if(isset($_POST['filter_search'])){
+      if(isset($_POST['filter_search']) or isset($_POST['h_search'])){
          echo '<h1 class="heading">Search Results</h1>';
       }else{
          echo '<h1 class="heading">Find your new Home!</h1>';
@@ -92,15 +92,20 @@
    ?>
    <div class="box-container">
       <?php
-         if(isset($_POST['filter_search'])){
+         if(isset($_POST['filter_search']) or isset($_POST['h_search'])){
             $location = $_POST['Location'];
             $location = filter_var($location, FILTER_SANITIZE_STRING);
             $propertyType = $_POST['PropertyType'];
             $propertyType = filter_var($propertyType, FILTER_SANITIZE_STRING);
-            $sellOption = $_POST['sellOption'];
-            $sellOption = filter_var($sellOption, FILTER_SANITIZE_STRING);
-            $bedrooms = $_POST['Bedrooms'];
-            $bedrooms = filter_var($bedrooms, FILTER_SANITIZE_STRING);
+            if (!isset($_POST['h_search'])) {
+               $sellOption = $_POST['sellOption'];
+               $sellOption = filter_var($sellOption, FILTER_SANITIZE_STRING);
+               $bedrooms = $_POST['Bedrooms'];
+               $bedrooms = filter_var($bedrooms, FILTER_SANITIZE_STRING);
+            } else {
+               $sellOption = "";
+               $bedrooms = "";
+            }
             $min = $_POST['min'];
             $min = filter_var($min, FILTER_SANITIZE_STRING);
             $max = $_POST['max'];
@@ -114,7 +119,7 @@
                         WHERE image.PropertyID = properties.PropertyID ) 
                      AND city LIKE '%{$location}%' 
                      AND PropertyType LIKE '%{$propertyType}%' 
-                     AND sellOption LIKE '%{$sellOption}%' 
+                     AND sellOption LIKE '%{$sellOption}%'
                      AND Bedrooms LIKE '%{$bedrooms}%' 
                      AND price BETWEEN $min AND $max 
                      ORDER BY properties.PropertyID DESC";

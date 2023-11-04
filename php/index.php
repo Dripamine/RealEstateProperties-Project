@@ -112,9 +112,14 @@ include "resources/header.php";
 
 <!-- services section ends -->
 
-<?php
-include "download_app.php";
-?>
+
+<!-- download app starts -->
+
+<div class="download-app-image">
+    <img src="images/download_app02.jpg" alt="Download the App" class="responsive-image">
+</div>
+
+<!-- download app ends -->
 
 
 </body>

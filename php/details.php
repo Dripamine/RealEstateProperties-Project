@@ -56,7 +56,7 @@
                                                                            $fetch_property['Province'] . ' - Postal: ' .
                                                                            $fetch_property['Postal']; ?></span></p>
          <div class="info">
-            <p><i class="fas fa-indian-rupee-sign"></i><span><?= number_format($fetch_property['Price'], 2); ?></span></p>
+            <p><i class="fas fa-dollar-sign"></i><span><?= number_format($fetch_property['Price'], 2); ?></span></p>
             <p><i class="fas fa-building"></i><span><?= $fetch_property['PropertyType']; ?></span></p>
             <p><i class="fas fa-house"></i><span><?= $fetch_property['sellOption']; ?></span></p>
             <p><i class="fas fa-calendar"></i><span><?= $fetch_property['YearOfBuilt']; ?></span></p>
@@ -64,32 +64,31 @@
          <h3 class="title">Details</h3>
          <div class="flex">
             <div class="box">
-               <p><i>rooms :</i><span><?= $fetch_property['Bedrooms'] + $fetch_property['Bathrooms']; ?> Bedrooms</span></p>
-               <p><i>deposit amount (10%) :</i><span><span class="fas fa-indian-rupee-sign" style="margin-right: .5rem;"></span><?= number_format($fetch_property['Price'] / 10, 2); ?></span></p> <!-- Assuming the loan 10% of the price -->
-               <p><i>status :</i><span><?= $fetch_property['ConstructionStatus']; ?></span></p>
-               <p><i>bedroom :</i><span><?= $fetch_property['Bedrooms']; ?></span></p>
-               <p><i>bathroom :</i><span><?= $fetch_property['Bathrooms']; ?></span></p>
+               <p><i>Rooms :</i><span><?= $fetch_property['Bedrooms'] + $fetch_property['Bathrooms']; ?> Bedrooms</span></p>
+               <p><i>Deposit Amount (10%) :</i><span><span class="fas fa-dollar-sign" style="margin-right: .5rem;"></span><?= number_format($fetch_property['Price'] / 10, 2); ?></span></p> <!-- Assuming the loan 10% of the price -->
+               <p><i>Status :</i><span><?= $fetch_property['ConstructionStatus']; ?></span></p>
+               <p><i>Bedroom :</i><span><?= $fetch_property['Bedrooms']; ?></span></p>
+               <p><i>Bathroom :</i><span><?= $fetch_property['Bathrooms']; ?></span></p>
             </div>
             <div class="box">
-               <p><i>age :</i><span><?= date('Y') - $fetch_property['YearOfBuilt']; ?> years</span></p>
-               <p><i>total floors :</i><span><?= $fetch_property['Floors']; ?></span></p>
-               <!-- <p><i>room floor :</i><span><?= $fetch_property['Floors']; ?></span></p> -->
-               <p><i>furnished :</i><span><?= $fetch_property['furnished']; ?></span></p>
-               <p><i>loan :</i><span><?= number_format($fetch_property['Price'] * 0.90, 2); ?></span></p> <!-- Assuming the loan is the amount after the depoisit amount(10%) -->
+               <p><i>Built in :</i><span><?= date('Y') - $fetch_property['YearOfBuilt']; ?></span></p>
+               <p><i>Total Floors :</i><span><?= $fetch_property['Floors']; ?></span></p>
+               <p><i>Furnished :</i><span><?= $fetch_property['furnished']; ?></span></p>
+               <p><i>Loan :</i><span><span class="fas fa-dollar-sign"></span><?= number_format($fetch_property['Price'] * 0.90, 2); ?></span></p> <!-- Assuming the loan is the amount after the depoisit amount(10%) -->
             </div>
          </div>
-         <h3 class="title">amenities</h3>
+         <h3 class="title">Amenities</h3>
          <div class="flex">
             <div class="box">
             <p><i class="fas fa-check"></i><span><?= $fetch_property['Amenities'] ?></span></p>
             </div>
             <div class="box">
-               <p><i class="fas fa-check"></i><span>parking area</span></p>
-               <p><i class="fas fa-check"></i><span>gym</span></p>
-               <p><i class="fas fa-check"></i><span>shopping mall</span></p>
-               <p><i class="fas fa-check"></i><span>hospital</span></p>
-               <p><i class="fas fa-check"></i><span>schools</span></p>
-               <p><i class="fas fa-check"></i><span>market area</span></p>
+               <p><i class="fas fa-check"></i><span>Parking area</span></p>
+               <p><i class="fas fa-check"></i><span>Gym</span></p>
+               <p><i class="fas fa-check"></i><span>Shopping Mall</span></p>
+               <p><i class="fas fa-check"></i><span>Hospital</span></p>
+               <p><i class="fas fa-check"></i><span>Schools</span></p>
+               <p><i class="fas fa-check"></i><span>Market area</span></p>
             </div>
          </div>
          <h3 class="title">Description</h3>
@@ -104,7 +103,6 @@
          echo '<p class="empty">property not found! <a href="post_property.php" style="margin-top:1.5rem;" class="btn">add new</a></p>';
       }
       ?>
-
    </section>
    <!-- view property section ends -->
 

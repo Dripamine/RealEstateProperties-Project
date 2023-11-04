@@ -1,5 +1,5 @@
 <?php
-
+//This file is the form action for editAgent.php
 require "resources/connect.php";
 
 // Get the currently logged-in user's data

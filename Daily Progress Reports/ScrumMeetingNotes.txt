@@ -58,20 +58,34 @@ Friday October 27th -
 
 Saturday October 28th -
     Benjamin - 
-    Karina - create about us page (nothing fancy), create saved properties page (user needs to log in first)
+    Karina - create about us page, create saved properties page (user needs to log in first)
     Amine - pushed an initial version of the user profile dashboard
 
 Monday October 30th -
     Amine - Setting up the Admin dashboard button.
+    Karina - all_listing and latest_listing pages created to do list to compare with requirements
 
 Tuesday October 31st - Happy Halloween!
     Benjamin - Started Admin / Agent Panel, 000webhost setup.
      Amine - pushed the Admin dashboard button.
+     Karina - statarted to review all pages and make some adjustments
 
 Wednesday Novemeber 1st
     Benjamin - Admin/Agent panel; Delete function, Add/edit function
     Amine - moved the error messages in the login box and made them red as well.
+    Karina - CSS and HTML adjustments
 
 Thursday Novemeber 2nd
     Benjamin - add/edit properties function
     Amine - is working the users and agent sections of the admin panel. Also started the project report.
+    Karina - details.php and fixing small css issues
+
+Friday Novemeber 3rd
+    Benjamin - 
+    Amine - 
+    Karina - details.php and part 2 and 3 of the small fixings 
+
+Saturday Novemeber 4th
+    Benjamin - 
+    Amine - 
+    Karina - finished details.php, general website test and fixed small issues

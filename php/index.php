@@ -13,12 +13,12 @@ include "resources/header.php";
          <h3>Find Your Perfect Home</h3>
          <div class="box">
             <p>Enter Location <span>*</span></p>
-            <input type="text" name="h_location" required maxlength="100" placeholder="enter city name" class="input">
+            <input type="text" name="Location" required maxlength="100" placeholder="enter city name" class="input">
          </div>
          
          <div class="box">             
                <p>Property Type <span>*</span></p>
-               <select name="h_type" class="input" required>
+               <select name="PropertyType" class="input" required>
                   <option value="flat">House</option>
                   <option value="house">Apartment</option>
                   <option value="shop">Comercial Building</option>
@@ -26,7 +26,7 @@ include "resources/header.php";
             
             <div class="box">
                <p>Minimum Budget <span>*</span></p>
-               <select name="h_min" class="input" required>
+               <select name="min" class="input" required>
                   <option value="50000">50k</option>
                   <option value="100000">100k</option>
                   <option value="150000">150k</option>
@@ -40,7 +40,7 @@ include "resources/header.php";
             </div>
             <div class="box">
                <p>Maximum Budget <span>*</span></p>
-               <select name="h_max" class="input" required>
+               <select name="max" class="input" required>
                <option value="50000">50k</option>
                   <option value="100000">100k</option>
                   <option value="150000">150k</option>

@@ -11,6 +11,7 @@ if (isset($_GET['is_latest_listings_only']) && $_GET['is_latest_listings_only'] 
 } else {
    $sqlLimit = "";  
    $pageTitle = "All Listings";
+   $pageDescription = "Please see here Just Sell all listing:";
 }
 ?>
 
@@ -35,7 +36,7 @@ if (isset($_GET['is_latest_listings_only']) && $_GET['is_latest_listings_only'] 
          $select_properties->execute();
          if($select_properties->rowCount() > 0){
             while($fetch_property = $select_properties->fetch(PDO::FETCH_ASSOC)){
-      ?>                                        
+      ?>
 
       <form action="" method="POST">
          <div class="box">

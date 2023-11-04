@@ -115,21 +115,23 @@
         xhr.onreadystatechange = function () {
           if (xhr.readyState == 4) {
             if (xhr.status == 200) {
-              alert("Offer submitted successfully.");
+              error_log("Offer submitted successfully.", 3, "logs/make_offer.log");
             } else {
-              alert("Failed to submit the offer. Please try again.");
+               error_log("Failed to submit the offer. Please try again.", 3, "logs/make_offer.log");
+              alert("An error occurred.");
             }
-            // Hide the modal
-            confirmationModal.style.display = 'none';
           }
         };
         xhr.send("propertyID=" + propertyID + "&offerAmount=" + txtOfferValue);
       }
+      // Hide the modal
+      confirmationModal.style.display = 'none';
+
+      // Redirect to index.php
+      window.location.href = "index.php";
     });
 
-    document.getElementById("noButton").addEventListener("click", function () {
-      // Handle "No" button action
-      alert("You clicked No. Cancel your action here.");
+    document.getElementById("noButton").addEventListener("click", function () {      
       // Hide the modal
       confirmationModal.style.display = 'none';
     });

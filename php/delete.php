@@ -16,7 +16,7 @@ if ($permission == 1){
     ?>
     <a href="index.php">Return to home</a>
     <a href="admin.php">Return to admin Panel</a>
-    <? die();
+    <?php die();
   }
 
   //check if item exists
@@ -31,7 +31,7 @@ if ($permission == 1){
     ?>
     <a href="index.php">Return to home</a>
     <a href="admin.php">Return to admin Panel</a>
-    <? die();
+    <?php die();
   }
   
   //if item exists and permission is admin
@@ -58,7 +58,7 @@ if ($permission == 1){
     $query->execute(["id" => $propertyID]);
     $data = $query->fetch();
     $agentIDfromP = $data['agentID'];
-    $sql = "SELECT agentID FROM Agents WHERE LoginID = :id";
+    $sql = "SELECT agentID FROM agents WHERE LoginID = :id";
     $query = $db->prepare($sql);
     $query->execute(["id" => $_SESSION['user_id']]);
     $data = $query->fetch();

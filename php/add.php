@@ -124,7 +124,7 @@ if ($data["Permission"] == 1){
     if (IsEmpty($_POST, 'AgentID')){
       $errorMsgs['AgentID'] = "Agent ID is required.";
     } else {
-      $sql = "SELECT AgentID FROM Agents";
+      $sql = "SELECT AgentID FROM agents";
       $query = $db->prepare($sql);
       $query->execute();
       $results = $query->fetchall();
@@ -171,7 +171,7 @@ if ($data["Permission"] == 1){
 
       if ($id == "") $id = $db->lastInsertId();
 
-      header("location: details.php?item={$id}");
+      header("location: details.php?get_id={$id}");
     }
   }
   include "resources/header.php";

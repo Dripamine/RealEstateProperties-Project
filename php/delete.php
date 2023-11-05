@@ -3,12 +3,10 @@
 require "resources/connect.php";
 
 //get all login data
-$sql = "SELECT * FROM logins WHERE LoginID = :id";
-$query = $db->prepare($sql);
-$query->execute(["id"=> $_SESSION['user_id']]);
-$data = $query->fetch();
 
-if ($data["Permission"] == 1){
+$permission = $_SESSION['userlvl'];
+
+if ($permission == 1){
   echo "How did you get in here? Bad user. GO AWAY.";
   die();
 } else {
@@ -37,7 +35,7 @@ if ($data["Permission"] == 1){
   }
   
   //if item exists and permission is admin
-  if ($data["Permission"] == 3){
+  if ($permission == 3){
   
 
     //delete item
@@ -50,7 +48,7 @@ if ($data["Permission"] == 1){
     die();
 
   //if item exists and permission is agent
-  } else if ($data["Permission"] == 2){
+  } else if ($permission == 2){
  
 
     //check login-agent-id vs item-agent-id

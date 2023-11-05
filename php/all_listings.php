@@ -53,7 +53,17 @@ if (isset($_GET['is_latest_listings_only']) && $_GET['is_latest_listings_only'] 
                <p><i class="fas fa-house"></i><span><?= $fetch_property['PropertyType']; ?></span></p>
                <p><i class="fas fa-bed"></i><span><?= $fetch_property['Bedrooms']; ?></span></p>
                <p><i class="fas fa-trowel"></i><span><?= $fetch_property['ConstructionStatus']; ?></span></p>
-               <p><i class="fas fa-couch"></i><span><?= $fetch_property['furnished']; ?></span></p>
+               <p><i class="fas fa-couch"></i>
+                                             <span>
+                                                <?php
+                                                if ($fetch_property['furnished'] == 1) {
+                                                      echo "Furnished";
+                                                } else {
+                                                      echo "Not Furnished";
+                                                }
+                                                ?>
+                                             </span>
+                                          </p>
                <p><i class="fas fa-maximize"></i><span><?= $fetch_property['size']; ?>sqft</span></p>
             </div>
             <div class="flex-btn">

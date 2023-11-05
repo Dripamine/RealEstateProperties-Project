@@ -37,7 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         // Set the "user_id" session variable with the user's ID
         $_SESSION['login'] = true;
         $_SESSION['user_id'] = $data['LoginID'];
+        $_SESSION['userlvl'] = $data['Permission'];
         // Redirect
+        
         header("location: index.php");
         die();
       } else {

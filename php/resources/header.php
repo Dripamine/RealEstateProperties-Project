@@ -49,7 +49,7 @@
             <li><a href="user.php">User Settings<i class="far fa-user"></i></a></li>
             <?php elseif ($IsLogIn && $_SESSION['userlvl'] > 1) : ?>
             <li><a href="admin.php">Admin/Agent Panel<i class="far fa-user"></i></a></li>
-            <? endif; ?>
+            <?php endif; ?>
             <li><a href="user.php">My Account<i class="fas fa-angle-down"></i></a>
                <ul>
                   <?php if($IsLogIn) : ?>

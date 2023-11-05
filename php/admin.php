@@ -60,7 +60,7 @@ if ($IsLogIn) {
             <a href="add.php?item=<?= $data['PropertyID']; ?>">Edit</a>
             <a href="delete.php?item=<?= $data['PropertyID']; ?>">Delete</a>
           </div>
-        <? endwhile ?>
+        <?php endwhile; ?>
 
       </section>
       <h1 class="heading">Offers</h1>
@@ -86,7 +86,7 @@ if ($IsLogIn) {
             <a href="modifyOffer.php?item=<?= $data['OfferID']; ?>&set=Rej">Reject</a>
             <a href="modifyOffer.php?item=<?= $data['OfferID']; ?>&set=Del">Delete</a>
           </div>
-        <? endwhile ?>
+        <?php endwhile; ?>
       </section>
 
     </section>
@@ -136,7 +136,7 @@ if ($IsLogIn) {
               <a href="add.php?item=<?= $data['PropertyID']; ?>">Edit</a>
               <a href="delete.php?item=<?= $data['PropertyID']; ?>">Delete</a>
             </div>
-        <? endwhile ?>
+        <?php endwhile; ?>
         </section>
         <h1 class="heading">Offers</h1>
         <section class="box-container">
@@ -161,7 +161,7 @@ if ($IsLogIn) {
               <a href="modifyOffer.php?item=<?= $data['OfferID']; ?>&set=Rej">Reject</a>
               <a href="modifyOffer.php?item=<?= $data['OfferID']; ?>&set=Del">Delete</a>
             </div>
-        <? endwhile ?>
+        <?php endwhile; ?>
         </section>
         <h1 class="heading">Users</h1>
         <!-- <button class="btn" type="submit" style="display: block; margin: 0 auto; width: 30rem;" onclick="location.href='add1.php'">Add User</button> -->
@@ -192,7 +192,7 @@ if ($IsLogIn) {
               <a href="deleteUser.php?user=<?= $data['UserID']; ?>">Delete</a>
             </div>
 
-        <? endwhile ?>
+        <?php endwhile; ?>
 
         </section>
         <h1 class="heading">Agents</h1>
@@ -221,7 +221,7 @@ if ($IsLogIn) {
               <a href="editAgent.php?agent=<?= $data['AgentID']; ?>">Edit</a>
               <a href="deleteAgent.php?agent=<?= $data['AgentID']; ?>">Delete</a>
             </div>
-        <? endwhile ?>
+        <?php endwhile; ?>
         </section>
 
       <?php

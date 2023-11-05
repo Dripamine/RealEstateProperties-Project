@@ -273,7 +273,7 @@ INSERT IGNORE INTO `admins` (`AdminID`, `LoginID`, `FirstName`, `LastName`, `Ema
 -- Dumping data for table `agents`
 
 INSERT IGNORE INTO `agents` (`AgentID`, `LoginID`, `FirstName`, `LastName`, `Phone`, `Email`) VALUES
-(1, 4, 'John', 'Doe', '514 909 0909', 'AgentJohnDoe@agentjustsell.ca'),
+(1, 2, 'John', 'Doe', '514 909 0909', 'AgentJohnDoe@agentjustsell.ca'),
 (2, 5, 'Jane', 'Doe', '514 090 9090', 'JaneDoe@agentjustsell.ca');
 
 -- Insert 6 records into the properties table
@@ -323,8 +323,9 @@ INSERT IGNORE INTO `image` (`ImageID`, `PropertyID`, `ImagePath`, `ImageFileName
 -- Insert records into the users table
 INSERT IGNORE INTO `users` (`UserID`,`LoginID`, `Email`, `FirstName`, `LastName`, `Phone`, `StreetNum`, `StreetName`, `City`, `Province`, `Postal`) VALUES
 (1, 3, 'Bob@email.com', 'Bobby', 'Bob', '123-456-7890', 123, 'Main St', 'New York', 'NY', '10001'),
-(2, 6, 'Jim@Joemail.com', 'Jimmy', 'Jones', '987-654-3210', 456, 'Elm St', 'Los Angeles', 'CA', '90001'),
-(3, 7, 'Crissy@hotmail.com', 'Chirstina', 'Crass', '555-123-4567', 789, 'Oak St', 'Chicago', 'IL', '60601');
+(2, 4, 'Jim@Joemail.com', 'Jimmy', 'Jones', '987-654-3210', 456, 'Elm St', 'Los Angeles', 'CA', '90001'),
+(3, 6, 'AAlbert@gmail.com', 'Abel', 'Albert', '432-234-4321', 123, 'That St', 'Toronto', 'ON' 'O1N 1N2')
+(4, 7, 'Crissy@hotmail.com', 'Chirstina', 'Crass', '555-123-4567', 789, 'Oak St', 'Chicago', 'IL', '60601');
 
 
 -- Insert records into the propertyoffers table

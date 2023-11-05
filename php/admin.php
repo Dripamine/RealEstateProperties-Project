@@ -11,17 +11,14 @@ if ($IsLogIn) {
 
 
   //get all login data
-  $sql = "SELECT * FROM logins WHERE LoginID = :id";
-  $query = $db->prepare($sql);
-  $query->execute(["id" => $_SESSION['user_id']]);
-  $data = $query->fetch();
+  $permission = $_SESSION['userlvl'];
 
 
-  if ($data['Permission'] == 1) {
+  if ($permission == 1) {
     echo '<h1>You are unauthorized to access this panel.</h1>';
 
   }
-  if ($data['Permission'] == 2) {
+  if ($permission == 2) {
     // Fetch Agent's FirstName based on the agentID
     $sql = "SELECT FirstName FROM agents WHERE LoginID = :loginID";
     $query = $db->prepare($sql);
@@ -94,8 +91,13 @@ if ($IsLogIn) {
 
     </section>
     <?php
-  } else if ($data['Permission'] == 3) {
-    $adminID = $data['LoginID'];
+  } else if ($permission == 3) {
+    $sql = "SELECT AdminID FROM admins WHERE LoginID = :id";
+    $query = $db->prepare($sql);
+    $query->execute(["id"=> $_SESSION['user_id']]);
+    $data = $query->fetch();
+
+    $adminID = $data['AdminID'];
 
     // Fetch the admin's first name based on the adminID
     $sql = "SELECT FirstName FROM admins WHERE LoginID = :adminID";
@@ -104,15 +106,6 @@ if ($IsLogIn) {
     $admin_data = $query->fetch();
 
     echo '<h1>Welcome to the Admin Panel, ' . $admin_data['FirstName'] . '!</h1>';
-
-    //fetch adminID -wait, i dont need to do this
-
-    /*$sql = "SELECT AdminID FROM admins WHERE LoginID = :id";
-    $query = $db->prepare($sql);
-    $query->execute(["id"=> $_SESSION['user_id']]);
-    $data = $query->fetch();
-    $adminID = $data['AgentID'];
-    */
 
     //fetch all  listings
     $sql = "SELECT * FROM properties";

@@ -9,7 +9,7 @@ if (isset($_POST['contact_submit'])) {
     $phone = $_POST['phone'];
     $message = $_POST['message'];
 
-    $to = 'your_email@example.com'; // Replace with email address
+    $to = 'teamuniformFSD10@GMAIL.COM'; // Replace with email address
     $subject = 'New Contact Form Submission';
     $messageBody = "Name: $name\nEmail: $email\nPhone: $phone\n\n$message";
 

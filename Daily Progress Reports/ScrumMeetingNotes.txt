@@ -18,7 +18,7 @@ Tuesday October 17th - Project Day 3
 
 Wednesday October 18th - Project Day 4
     Benjamin - Started Database, created sql file
-    Amine - researched and found theweb hosting server for our website: infinityfree.com
+    Amine - researched and found the web hosting server for our website: infinityfree.com
     Karina - Working on CSS, HTML and PHP for home page
 
 Thursday October 19th - 
@@ -68,7 +68,7 @@ Monday October 30th -
 Tuesday October 31st - Happy Halloween!
     Benjamin - Started Admin / Agent Panel, 000webhost setup.
      Amine - pushed the Admin dashboard button.
-     Karina - statarted to review all pages and make some adjustments.
+     Karina - started to review all pages and make some adjustments.
 
 Wednesday November 1st
     Benjamin - Admin/Agent panel; Delete function, Add/edit function
@@ -85,7 +85,7 @@ Friday November 3rd
     Amine – finished the users and agent sections of the admin panel.
     Karina - details.php and part 2 and 3 of the small fixings 
 
-Saturday Novemeber 4th
+Saturday November 4th
     Benjamin - 
     Amine – fixed a bug on the editAgent.php page.
     Karina - finished details.php, general website test and fixed small issues
